@@ -1,0 +1,166 @@
+.modal {
+  display: grid;
+  position: fixed;
+  align-items: center;
+  justify-items: center;
+  visibility: hidden;
+  z-index: 999;
+  transition:
+    transform 0.3s ease-out,
+    visibility 0.3s allow-discrete,
+    opacity 0.1s ease-out;
+  margin: 0;
+  inset: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  pointer-events: none;
+  color: var(--neutral-700);
+}
+
+.modal-backdrop {
+  display: grid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  align-self: stretch;
+  justify-self: stretch;
+  z-index: -1;
+  color: transparent;
+}
+
+.modal.modal-open,
+.modal[open],
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal.modal-open .modal-box,
+.modal[open] .modal-box,
+.modal:target .modal-box {
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+}
+
+.modal-box {
+  display: flex;
+  position: relative;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  flex-direction: column;
+  opacity: 0;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.2s ease-out 0.05s,
+    box-shadow 0.3s ease-out;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 1.5rem;
+  min-width: 20rem;
+  max-height: calc(100vh - 20rem);
+  overscroll-behavior: contain;
+  gap: 0.5rem;
+}
+
+.modal-box .modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal-box .modal-header span {
+  font-size: var(--text-xl);
+  color: var(--foreground-gray-stronger);
+  font-weight: var(--font-weight-bold);
+}
+
+.modal-box .modal-header p {
+  font-size: 0.875rem;
+}
+
+.modal-box .modal-body {
+  max-height: 40rem;
+}
+
+.modal-box .modal-body img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.modal-box .modal-body span {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.modal-box .modal-footer {
+  position: sticky;
+  bottom: 0;
+  justify-content: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  filter: invert(0.2) sepia(0.2) saturate(0) hue-rotate(180deg);
+}
+
+.modal-close img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Modal sizes */
+.modal-box-s {
+  max-width: 20rem;
+}
+
+.modal-box-s .modal-header {
+  gap: 0.5rem;
+}
+
+.modal-box-s .modal-body {
+  margin: 0.5rem 0;
+}
+
+.modal-box-m {
+  width: 30rem;
+  max-height: 30rem;
+}
+
+.modal-box-m .modal-header {
+  gap: 1rem;
+}
+
+.modal-box-m .modal-body {
+  margin: 1rem 0;
+  max-height: 20rem;
+}
+
+.modal-box-l {
+  max-width: 60rem;
+}
+
+.modal-box-l .modal-body {
+  margin: 1.5rem 0;
+  max-height: 40rem;
+}
+
+/* 검색 모달 */
+.modal-box-m:has(.search-modal-results) {
+  height: 20rem;
+}

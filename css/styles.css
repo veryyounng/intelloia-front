@@ -1,0 +1,159 @@
+@import "output.css";
+@import "foundation.css";
+@import "layout.css";
+
+@import "components/button.css";
+@import "components/collapse.css";
+@import "components/controls.css";
+@import "components/progressbar.css";
+@import "components/textfield.css";
+
+* {
+  font-family: "Pretendard Variable", system-ui;
+  outline: none;
+  color: var(--foreground-gray-default);
+}
+
+a:focus {
+  outline: 2px solid var(--foreground-brand-subtler);
+  outline-offset: 2px;
+}
+
+/* --- CHIP --- */
+.chip-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.chip {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-999);
+  background: #fff;
+}
+
+/* --- SELECT --- */
+/* --- DATEPICKER --- */
+/* --- TIMEPICKER --- */
+/* --- MODAL --- */
+/* --- TOAST --- */
+/* --- SIDEBAR --- */
+
+/* --- need to be edited --- */
+/* --- nav --- */
+.la-nav {
+  display: flex;
+  flex-direction: row;
+  width: 70dvw;
+  min-width: 640px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 64px;
+  margin: 32px;
+  border-radius: var(--radius-999);
+  padding: 16px 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  mix-blend-mode: difference;
+  z-index: 999;
+}
+
+.la-nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+}
+
+.la-nav ul li:hover,
+.la-nav ul li:focus {
+  color: rgba(255, 255, 255, 0.9);
+  transition: 300ms;
+}
+
+.la-nav .btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+/* --- CARD --- */
+.card-list-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  flex-wrap: wrap;
+  min-width: 640px;
+}
+.card-list {
+  display: flex;
+  flex-direction: row;
+  min-width: 240px;
+  max-width: 440px;
+  width: 100%;
+  gap: 0.5rem;
+  border: 1px solid #dfe2f1;
+  background: #f5f7ff;
+  padding: 2rem;
+  align-items: center;
+}
+.card-list .api-thumbnail {
+  min-width: 64px;
+  height: 64px;
+}
+.card-list-textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.75rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: 40px;
+  border-radius: var(--radius-32);
+  background: var(--blue-50);
+  overflow: hidden;
+  padding: 2rem;
+  align-items: center;
+}
+.card-content-tn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-100);
+  border-radius: var(--radius-16);
+  aspect-ratio: var(--ratio-landscape);
+  width: 100%;
+}
+.card-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem;
+}
+.card-content-textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.75rem;
+}
+.card-content-textcontainer .h4 {
+  font-weight: 700;
+}

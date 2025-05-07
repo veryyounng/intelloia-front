@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | 회원정보 관리</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <a><img src="/img/logo.svg" alt="intelloia logo" /></a>
+        <ul>
+          <li>
+            <a href="/html/MA-10-01.html"
+              ><img
+                src="/img/icon/command-line-outline.svg"
+                alt="api/서비스관리"
+              />API/서비스 관리</a
+            >
+          </li>
+          <li>
+            <a href="/html/MA-20-01.html"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="사용 내역"
+              />사용 내역</a
+            >
+          </li>
+          <li>
+            <a href="html/MA-30-01.html"
+              ><img
+                src="/img/icon/currency-dollar-outline.svg"
+                alt="포인트 관리"
+              />포인트 관리</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MA-40-01.html" class="menu-active"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+        </ul>
+        <div
+          class="menu-footer align-center flex w-full flex-col items-center gap-2"
+        >
+          <a
+            href="/html/LO-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-outline"
+            >로그아웃</a
+          >
+          <a
+            href="/html/LA-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-ghost"
+            >인텔로이아</a
+          >
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex max-w-xl flex-col gap-10">
+          <div class="text-container relative">
+            <div class="foreground-gray-strong text-2xl font-bold">
+              회원정보 관리
+            </div>
+          </div>
+          <div class="content-container flex flex-col gap-6">
+            <div
+              class="background-white flex flex-col items-center justify-between gap-6 rounded-lg p-8"
+            >
+              <div class="form-content flex h-full w-full flex-col gap-5">
+                <div class="textfield flex flex-col">
+                  <label class="label" for="text">회사명</label>
+                  <input
+                    class="textfield-placeholder"
+                    type="text"
+                    placeholder="회사명을 입력해주세요."
+                    value="인텔로이아"
+                    required
+                  />
+                </div>
+                <div class="textfield flex flex-col">
+                  <label class="label" for="tel">회사 전화번호</label>
+                  <input
+                    class="textfield-placeholder"
+                    type="tel"
+                    placeholder="회사 전화번호를 입력해주세요."
+                    required
+                    value="02-1234-5678"
+                  />
+                </div>
+                <div class="textfield flex flex-col">
+                  <label class="label" for="text">사업자 등록번호</label>
+                  <input
+                    class="textfield-placeholder"
+                    type="text"
+                    placeholder="사업자 등록번호를 입력해주세요."
+                    required
+                    value="123-45-67890"
+                  />
+                </div>
+                <div class="textfield flex flex-col">
+                  <label class="label" for="text">담당자명</label>
+                  <input
+                    class="textfield-placeholder"
+                    type="text"
+                    placeholder="담당자명을 입력해주세요."
+                    required
+                    value="홍길동"
+                  />
+                </div>
+                <div class="textfield flex flex-col">
+                  <label class="label" for="email">이메일</label>
+                  <input
+                    class="textfield-placeholder"
+                    type="email"
+                    placeholder="이메일을 입력해주세요."
+                    required
+                    value="email@email.com"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-wide btn-primary btn-disabled"
+                onclick="document.getElementById('my_modal_3').showModal()"
+                >회원정보 변경</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <dialog id="my_modal_3" class="modal">
+        <div class="modal-box modal-box-s">
+          <form method="dialog">
+            <button class="btn btn-s btn-ghost absolute top-5 right-5">
+              <img src="/img/icon/x-mark-outline.svg" alt="" />
+            </button>
+          </form>
+          <div class="text-container">
+            <h3 class="fore-gray-strong text-xl font-semibold">
+              회원정보 변경
+            </h3>
+            <p class="text-sm">회원정보를 변경하시겠습니까?</p>
+          </div>
+          <div class="btn-container flex flex-row gap-2">
+            <a href="#" class="btn btn-m btn-soft btn-primary btn-wide">취소</a>
+            <a href="#" class="btn btn-m btn-primary btn-wide">변경</a>
+          </div>
+        </div>
+      </dialog>
+    </main>
+  </body>
+</html>

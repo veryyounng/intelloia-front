@@ -1,0 +1,68 @@
+.card {
+  display: flex;
+  width: 272px;
+  padding: var(--size-28, 28px) var(--size-32, 32px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--size-12, 12px);
+  border-radius: 8px;
+  border: 1px solid var(--foreground-gray-subtlest, #f1f3f5);
+  background: var(--fill-white, #fff);
+  cursor: default;
+}
+
+.card-header {
+  color: var(--foreground-gray-strong, #676e76);
+
+  /* text-lg/600 */
+  font-size: var(--font-size-lg, 18px);
+  font-style: normal;
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--font-leading-7, 28px); /* 155.556% */
+  letter-spacing: var(--font-tracking-normal, 0px);
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--size-24, 24px);
+  align-self: stretch;
+  color: var(--foreground-gray-default, #868e96);
+
+  /* text-sm/500 */
+  font-size: var(--font-size-sm, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--font-leading-5, 20px); /* 142.857% */
+  letter-spacing: var(--font-tracking-normal, 0px);
+}
+
+.listcard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12, 12px);
+}
+.listcard-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listprofile-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+}
+.listprofile-container .profile-container,
+.listprofile-container .partner-container {
+  background-color: var(--fill-white);
+  padding: var(--size-8) var(--size-12);
+  border-radius: var(--radius-8);
+}
+
+.listprofile-container .profile-container .profile-info {
+  width: 100%;
+}

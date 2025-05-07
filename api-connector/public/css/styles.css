@@ -1,0 +1,209 @@
+@import "output.css";
+@import "foundation.css";
+@import "layout.css";
+
+@import "components/button.css";
+@import "components/collapse.css";
+@import "components/controls.css";
+@import "components/progressbar.css";
+@import "components/textfield.css";
+@import "components/menu.css";
+@import "components/stepper.css";
+@import "components/modal.css";
+@import "components/table.css";
+@import "components/divider.css";
+@import "components/tooltip.css";
+@import "components/card.css";
+@import "components/pagination.css";
+@import "components/profile.css";
+@import "components/chip.css";
+@import "components/tab.css";
+
+* {
+  font-family: "Pretendard Variable", system-ui;
+  outline: none;
+  color: var(--foreground-gray-default);
+  word-break: break-word;
+  ::selection {
+    background-color: var(--foreground-brand-subtler);
+  }
+}
+
+/* SCROLL */
+*::-webkit-scrollbar-button {
+  display: none;
+}
+*::-webkit-scrollbar {
+  /* display: none; */
+  width: 0.5rem;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+  background: color-mix(
+    in oklch,
+    var(--foreground-gray-default) 20%,
+    transparent
+  );
+}
+*::-webkit-scrollbar-thumb:hover {
+  border-radius: 0.25rem;
+  background: color-mix(
+    in oklch,
+    var(--foreground-gray-default) 50%,
+    transparent
+  );
+}
+
+a:focus {
+  outline-offset: 2px;
+  outline: 2px solid var(--foreground-brand-subtler);
+  transition: 500ms;
+}
+
+/* --- CHIP --- */
+.chip-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.helptext {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+}
+.helptext img {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* --- SELECT --- */
+/* --- DATEPICKER --- */
+/* --- TIMEPICKER --- */
+/* --- MODAL --- */
+/* --- TOAST --- */
+/* --- SIDEBAR --- */
+
+/* --- need to be edited --- */
+/* --- nav --- */
+.la-nav {
+  display: flex;
+  flex-direction: row;
+  width: 70dvw;
+  min-width: 640px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 64px;
+  margin: 32px;
+  border-radius: var(--radius-999);
+  padding: 16px 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  mix-blend-mode: difference;
+  z-index: 999;
+}
+
+.la-nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+}
+
+.la-nav ul li:hover,
+.la-nav ul li:focus {
+  color: rgba(255, 255, 255, 0.9);
+  transition: 300ms;
+}
+
+.la-nav .btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+/* .card-list-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  flex-wrap: wrap;
+  min-width: 640px;
+}
+.card-list {
+  display: flex;
+  flex-direction: row;
+  min-width: 240px;
+  max-width: 440px;
+  width: 100%;
+  gap: 0.5rem;
+  border: 1px solid #dfe2f1;
+  background: #f5f7ff;
+  padding: 2rem;
+  align-items: center;
+}
+.card-list .api-thumbnail {
+  min-width: 64px;
+  height: 64px;
+}
+.card-list-textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.75rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: 40px;
+  border-radius: var(--radius-32);
+  background: var(--blue-50);
+  overflow: hidden;
+  padding: 2rem;
+  align-items: center;
+}
+.card-content-tn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-100);
+  border-radius: var(--radius-16);
+  aspect-ratio: var(--ratio-landscape);
+  width: 100%;
+}
+.card-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem;
+}
+.card-content-textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.75rem;
+}
+.card-content-textcontainer .h4 {
+  font-weight: 700;
+} */

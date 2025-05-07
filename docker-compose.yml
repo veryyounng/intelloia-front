@@ -1,0 +1,38 @@
+version: "3"
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_platform_intelloia
+    environment:
+      MYSQL_ROOT_PASSWORD: itld2010!
+      MYSQL_DATABASE: root
+    ports:
+      - "27306:3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
+
+  backend:
+    build: ../intelloia-back
+    container_name: backend_platform
+    ports:
+      - "27081:8080"
+    depends_on:
+      - mariadb
+
+  frontend:
+    build:
+      context: ../Intelloia-front/api-connector/
+    container_name: frontend_platform
+    ports:
+      - "27080:80"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_gateway
+    ports:
+      - "27000:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend

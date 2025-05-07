@@ -1,0 +1,95 @@
+.checkbox-container {
+  padding: var(--size-12) var(--size-16);
+}
+
+.collapse {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+/* 테이블 요소에서는 보이지 않도록 설정 */
+.collapse:not(td, tr, colgroup) {
+  visibility: visible;
+}
+
+.collapse-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  background: var(--background-white);
+}
+
+.collapse-title:hover {
+  background: var(--fill-gray-subtler);
+}
+
+.collapse-content {
+  max-height: 0; /* height 대신 max-height 사용 */
+  opacity: 0; /* visibility 대신 opacity 사용 */
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease-in-out,
+    opacity 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  background: var(--fill-gray-subtler);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--foreground-gray-default);
+  padding: 0 var(--size-16);
+  box-sizing: border-box;
+}
+
+.collapse-content.open {
+  max-height: 280px; /* 충분히 큰 값으로 설정 */
+  opacity: 1;
+  padding: 0 var(--size-16) var(--size-16) var(--size-16);
+  overflow-y: auto;
+}
+
+.checkbox-container:has(#terms-all) {
+  border-radius: var(--radius-8);
+  transition: all 0.2s ease-in-out;
+}
+
+.checkbox-container:has(#terms-all):hover {
+  background: var(--fill-gray-subtler);
+}
+
+.checkbox-container label {
+  color: var(--foreground-gray-default);
+  font-size: var(--font-size-text-sm);
+  user-select: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.collapse-toggle {
+  border: none;
+  background: none;
+  padding: var(--size-4) var(--size-8);
+  cursor: pointer;
+  color: var(--foreground-gray-subtler);
+  /* transition: transform 0.5s ease; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapse-toggle:hover {
+  color: var(--foreground-gray-default);
+}
+
+.collapse-toggle.open {
+  transform: rotate(180deg);
+}
+
+.collapse-toggle img {
+  width: var(--size-20);
+  height: var(--size-20);
+}

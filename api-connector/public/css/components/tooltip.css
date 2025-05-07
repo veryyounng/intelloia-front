@@ -1,0 +1,56 @@
+.tooltip-icon {
+  position: relative;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+  display: inline-block;
+  background-image: url("/img/icon/information-circle-outline.svg");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.tooltip-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: var(--fill-gray-stronger);
+  color: var(--foreground-white);
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs-line-height);
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  line-height: var(--text-xs--line-height);
+  max-width: 240px;
+}
+
+/* to-do 툴팁 화살표 추가 */
+/* .tooltip-right::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 20%;
+  z-index: 10;
+  background-color: var(--fill-gray-stronger);
+  mask-image: url("/img/tooltip-break.svg");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  rotate: -90deg;
+} */

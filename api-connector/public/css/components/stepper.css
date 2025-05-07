@@ -1,0 +1,82 @@
+.stepper-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+
+.stepper-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--foreground-gray-subtler);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.stepper-button:hover:not(:disabled) {
+  color: var(--foreground-gray-subtler);
+  background-color: var(--fill-gray-subtle);
+}
+
+.stepper-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--foreground-gray-default);
+  position: relative;
+  z-index: 1;
+}
+
+.stepper-button:disabled {
+  cursor: not-allowed;
+}
+
+.stepper-button:disabled .stepper-icon {
+  opacity: 0.2;
+}
+
+.decrement-button {
+  border-radius: 6px 0 0 6px;
+}
+
+.increment-button {
+  border-radius: 0 6px 6px 0;
+}
+
+.stepper-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-top: 1px solid var(--foreground-gray-subtler);
+  border-bottom: 1px solid var(--foreground-gray-subtler);
+  background-color: white;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-align: center;
+}
+
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.stepper-icon {
+  width: 1rem;
+  height: 1rem;
+  background-size: cover;
+}
+.stepper-icon-left {
+  background-image: url("/img/icon/minus-outline.svg");
+}
+.stepper-icon-right {
+  background-image: url("/img/icon/plus-outline.svg");
+}

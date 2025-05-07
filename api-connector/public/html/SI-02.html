@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | 회원가입</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main
+      class="background-gray-subtler box-shadow flex h-dvh min-w-2xl flex-col items-center justify-center p-20"
+    >
+      <div class="progressbar-container max-w-160 min-w-96">
+        <div class="progressbar progressbar-done">
+          <div class="progressbar-indicator"></div>
+          <span class="progressbar-text">약관동의</span>
+        </div>
+        <div class="progressbar progressbar-inprogress">
+          <div class="progressbar-indicator"></div>
+          <span class="progressbar-text">정보입력</span>
+        </div>
+        <div class="progressbar progressbar-notyet">
+          <div class="progressbar-indicator"></div>
+          <span class="progressbar-text">가입완료</span>
+        </div>
+      </div>
+      <div
+        class="signup background-white box-shadow relative flex h-[638px] w-1/2 max-w-160 min-w-96 flex-col gap-12 rounded-xl p-10"
+      >
+        <div class="text-container text-center">
+          <span class="foreground-gray-strong text-2xl font-bold"
+            >회원가입</span
+          >
+        </div>
+        <div class="form flex h-full w-full flex-col">
+          <div class="form-content flex h-full w-full flex-col">
+            <div class="form-content flex h-full w-full flex-col gap-5">
+              <div class="textfield flex flex-col">
+                <label class="label" for="text">회사명</label>
+                <input
+                  class="textfield-placeholder"
+                  type="text"
+                  placeholder="회사명을 입력해주세요."
+                  required
+                />
+              </div>
+              <div class="textfield flex flex-col">
+                <label class="label" for="tel">회사 전화번호</label>
+                <input
+                  class="textfield-placeholder"
+                  type="tel"
+                  placeholder="회사 전화번호를 입력해주세요."
+                  required
+                />
+              </div>
+              <div class="textfield flex flex-col">
+                <label class="label" for="text">사업자 등록번호</label>
+                <input
+                  class="textfield-placeholder"
+                  type="text"
+                  placeholder="사업자 등록번호를 입력해주세요."
+                  required
+                />
+              </div>
+              <div class="textfield flex flex-col">
+                <label class="label" for="text">담당자명</label>
+                <input
+                  class="textfield-placeholder"
+                  type="text"
+                  placeholder="담당자명을 입력해주세요."
+                  required
+                />
+              </div>
+            </div>
+            <div
+              class="btn-container sticky bottom-0 flex w-full flex-row gap-4"
+            >
+              <a
+                class="btn btn-m btn-wide btn-soft btn-neutral"
+                href="SI-01.html"
+                >이전</a
+              >
+              <a
+                class="btn btn-m btn-wide btn-m btn-primary btn-disabled"
+                href="SI-03.html"
+                >다음</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

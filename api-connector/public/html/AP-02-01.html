@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | APIs</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <div class="flex flex-row items-end gap-1">
+          <a href="../html/MY-01-01.html">
+            <img src="../img/logo.png" alt="intelloia logo" />
+          </a>
+          <a href="../html/LA-01.html" class="btn btn-icon-s btn-ghost pb-1"
+            ><img src="../img/icon/square-arrow-out-up-right 1.svg" alt=""
+          /></a>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          <li>
+            <a href="../html/MY-01-01.html"
+              ><img
+                src="../img/icon/document-text-outline.svg"
+                alt="MY 사용내역"
+              />MY 사용내역</a
+            >
+          </li>
+          <li>
+            <a href="../html/AP-01-01.html" class="menu-active"
+              ><img
+                src="../img/icon/command-line-outline.svg"
+                alt="APIs"
+              />APIs</a
+            >
+          </li>
+          <li>
+            <a href="../html/SV-01-01.html"
+              ><img
+                src="../img/icon/building-storefront-outline.svg"
+                alt="Services"
+              />Services</a
+            >
+          </li>
+          <li>
+            <a href="../html/PO-01-01.html"
+              ><img
+                src="../img/icon/credit-card-outline.svg"
+                alt="포인트 내역"
+              />포인트 내역</a
+            >
+          </li>
+          <li>
+            <a hre="../html/MM-01-01.html"
+              ><img
+                src="../img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+        </ul>
+        <div class="divider"></div>
+        <div class="menu-footer align-center flex w-full flex-col items-center">
+          <div class="profile-container">
+            <div class="profile">
+              <img src="../img/icon/user-outline.svg" alt="" />
+            </div>
+            <div class="profile-info">
+              <div class="flex flex-row gap-2">
+                <span>홍길동</span>
+                <span class="chip chip-neutral chip-s">Owner</span>
+              </div>
+              <div>gildong@gmail.com</div>
+            </div>
+            <div class="profile-btn">
+              <a href="" class="btn btn-icon-m btn-ghost"
+                ><img src="../img/icon/power-outline.svg" alt="logout"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex flex-col gap-10">
+          <div class="text-container relative">
+            <div class="foreground-gray-strong text-2xl font-bold">APIs</div>
+          </div>
+          <div class="divider"></div>
+          <div class="flex-col">
+            <div class="section-container">
+              <div class="section">
+                <div class="section-header relative">
+                  <a
+                    href="../html/AP-01-01.html"
+                    class="btn btn-ghost btn-icon-s absolute -left-8"
+                    onclick="history.back()"
+                    ><img src="../img/icon/chevron-left-outline.svg" alt=""
+                  /></a>
+                  <span>의료 STT</span>
+                </div>
+                <div class="section-body flex-col">
+                  <div class="form-container">
+                    <div class="flex flex-row items-center gap-4">
+                      <label class="label-m" for="text">사용처</label>
+                      <div class="textfield flex flex-row">
+                        <input
+                          class="textfield-placeholder"
+                          type="text"
+                          placeholder="사용처를 입력해주세요."
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="flex flex-row items-start gap-4">
+                      <label class="label-m" for="number">동시 접속 수</label>
+                      <div class="flex flex-col gap-2">
+                        <div class="stepper-container">
+                          <div class="stepper">
+                            <button
+                              class="stepper-button decrement-button"
+                              id="decrement-button"
+                              aria-label="Decrease value"
+                            >
+                              <div class="stepper-icon stepper-icon-left"></div>
+                            </button>
+                            <input
+                              type="number"
+                              class="stepper-input"
+                              id="stepper-input"
+                              aria-labelledby="stepper-label"
+                              value="1"
+                            />
+                            <button
+                              class="stepper-button increment-button"
+                              id="increment-button"
+                              aria-label="Increase value"
+                            >
+                              <div
+                                class="stepper-icon stepper-icon-right"
+                              ></div>
+                            </button>
+                          </div>
+                        </div>
+                        <span class="text-xs font-normal"
+                          >동시 접속 수는 동시에 API를 사용할 수 있는
+                          사용자(또는 장치)의 수를 의미합니다. 동시 접속 수가
+                          초과되면 추가 요청은 대기 상태가 되거나 거부될 수
+                          있으므로, 예상되는 사용량을 고려하여 적절히 설정해
+                          주세요.</span
+                        >
+                      </div>
+                    </div>
+                    <a
+                      href="../html/AP-02-02.html"
+                      class="btn btn-l btn-primary"
+                      >2주 무료체험</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="section fill-gray-subtler">
+                <div class="section-header">
+                  <span>매월 예상요금</span>
+                  <span class="helptext"
+                    ><img
+                      src="../img/icon/information-circle-outline.svg"
+                      alt=""
+                    />2주 무료체험 후 적용됩니다.</span
+                  >
+                </div>
+                <div class="section-body">
+                  <div class="listcard-container">
+                    <div class="listcard-item">
+                      <div class="label-m">월정액 금액</div>
+                      <div class="label-m text-right">
+                        <span>12,000</span><span> 원</span>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="listcard-item">
+                      <div class="label-m">동시 접속 수</div>
+                      <div class="label-m text-right">
+                        <span class="stepper-input-value">1</span
+                        ><span> 개</span>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="listcard-item">
+                      <div class="label-m"></div>
+                      <div class="label-m text-right">
+                        <span>12,000</span><span> x </span
+                        ><span class="stepper-input-value">1</span>
+                      </div>
+                    </div>
+                    <div class="listcard-item">
+                      <div class="label-m">월정액 금액</div>
+                      <div class="label-m text-right">
+                        <span
+                          class="foreground-gray-strong stepper-result text-3xl"
+                          >12,000</span
+                        ><span class="foreground-gray-default text-lg">
+                          원/월</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
