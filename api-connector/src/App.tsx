@@ -16,6 +16,8 @@ import ApiDetail from "./pages/ApiDetail";
 import { MedicalSttSub } from "./pages/MedicalSttSub";
 import FindIdPage from "./pages/FindIdPage";
 import FindPwPage from "./pages/FindPwPage";
+import Service from "./pages/Service";
+import Point from "./pages/Point";
 
 function App() {
   const restoreAuth = useAuthStore((state) => state.restoreAuth);
@@ -40,6 +42,8 @@ function App() {
         <Route path="/apis-page/api-detail" element={<ApiDetail />} />
         <Route path="/apis-page/medicalsttSub" element={<MedicalSttSub />} />
         <Route path="/api-detail/:usageId" element={<ApiDetail />} />
+        <Route path="/service-page" element={<Service />} />
+        <Route path="/point-page" element={<Point />} />
       </Routes>
     </Router>
   );
