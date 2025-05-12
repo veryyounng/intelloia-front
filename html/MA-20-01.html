@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | 사용 내역</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <a><img src="/img/logo.svg" alt="intelloia logo" /></a>
+        <ul>
+          <li>
+            <a href="/html/MA-10-01.html">
+              <img
+                src="/img/icon/command-line-outline.svg"
+                alt="api/서비스관리"
+              />API/서비스 관리
+            </a>
+          </li>
+          <li>
+            <a class="menu-active" href="/html/MA-20-01.html"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="사용 내역"
+              />사용 내역</a
+            >
+          </li>
+          <li>
+            <a href="html/MA-30-01.html"
+              ><img
+                src="/img/icon/currency-dollar-outline.svg"
+                alt="포인트 관리"
+              />포인트 관리</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MA-40-01.html"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+          <li></li>
+        </ul>
+        <div
+          class="menu-footer align-center flex w-full flex-col items-center gap-2"
+        >
+          <a
+            href="/html/LO-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-outline"
+            >로그아웃</a
+          >
+          <a
+            href="/html/LA-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-ghost"
+            >인텔로이아</a
+          >
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex flex-col gap-10">
+          <div class="text-container flex flex-row items-end gap-4 self-end">
+            <div class="textfield flex w-120 flex-col">
+              <label class="label" for="">날짜</label>
+              <input class="textfield-placeholder" type="date" />
+            </div>
+            <div class="textfield flex flex-col">
+              <label class="label" for="">날짜</label>
+              <input class="textfield-placeholder" type="date" />
+            </div>
+            <a href="#" class="btn btn-m btn-primary mb-0.5 h-9">조회</a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>날짜</th>
+                  <th>서비스/API 명</th>
+                  <th>동시 계정 수</th>
+                  <th>플랜</th>
+                  <th>이용 금액</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row 1 -->
+                <tr class="row">
+                  <td>2025/03/05</td>
+                  <td>의료 STT</td>
+                  <td>3</td>
+                  <td>-</td>
+                  <td class="td-money">12,345</td>
+                </tr>
+                <!-- row 2 -->
+                <tr class="row">
+                  <td>2025/03/05</td>
+                  <td>다미톡</td>
+                  <td>-</td>
+                  <td>스타터 플랜</td>
+                  <td class="td-money">12,345</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

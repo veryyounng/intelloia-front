@@ -1,4 +1,4 @@
-.checkbox-wrapper {
+.checkbox-container {
   padding: var(--size-12) var(--size-16);
 }
 
@@ -12,6 +12,7 @@
 }
 
 /* 테이블 요소에서는 보이지 않도록 설정 */
+
 .collapse:not(td, tr, colgroup) {
   visibility: visible;
 }
@@ -52,16 +53,16 @@
   overflow-y: auto;
 }
 
-.checkbox-wrapper:has(#terms-all) {
+.checkbox-container:has(#terms-all) {
   border-radius: var(--radius-8);
   transition: all 0.2s ease-in-out;
 }
 
-.checkbox-wrapper:has(#terms-all):hover {
+.checkbox-container:has(#terms-all):hover {
   background: var(--fill-gray-subtler);
 }
 
-.checkbox-wrapper label {
+.checkbox-container label {
   color: var(--foreground-gray-default);
   font-size: var(--font-size-text-sm);
   user-select: none;
@@ -74,7 +75,8 @@
   background: none;
   padding: var(--size-4) var(--size-8);
   cursor: pointer;
-  color: var(--foreground-gray-subtle);
+  color: var(--foreground-gray-subtler);
+
   /* transition: transform 0.5s ease; */
   display: flex;
   align-items: center;

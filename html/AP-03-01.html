@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | APIs</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <div class="flex flex-row items-end gap-1">
+          <a href="/html/MY-01-01.html">
+            <img src="/img/logo.png" alt="intelloia logo" />
+          </a>
+          <a href="/html/LA-01.html" class="btn btn-icon-s btn-ghost pb-1"
+            ><img src="/img/icon/square-arrow-out-up-right 1.svg" alt=""
+          /></a>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          <li>
+            <a href="/html/MY-01-01.html"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="MY 사용내역"
+              />MY 사용내역</a
+            >
+          </li>
+          <li>
+            <a href="/html/AP-01-01.html" class="menu-active"
+              ><img
+                src="/img/icon/command-line-outline.svg"
+                alt="APIs"
+              />APIs</a
+            >
+          </li>
+          <li>
+            <a href="html/SV-01-01.html"
+              ><img
+                src="/img/icon/building-storefront-outline.svg"
+                alt="Services"
+              />Services</a
+            >
+          </li>
+          <li>
+            <a href="html/PO-01-01.html"
+              ><img
+                src="/img/icon/credit-card-outline.svg"
+                alt="포인트 내역"
+              />포인트 내역</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MM-01-01.html"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+        </ul>
+        <div class="divider"></div>
+        <div class="menu-footer align-center flex w-full flex-col items-center">
+          <div class="profile-container">
+            <div class="profile">
+              <img src="/img/icon/user-outline.svg" alt="" />
+            </div>
+            <div class="profile-info">
+              <div class="flex flex-row gap-2">
+                <span>홍길동</span>
+                <span class="chip chip-neutral chip-s">Owner</span>
+              </div>
+              <div>gildong@gmail.com</div>
+            </div>
+            <div class="profile-btn">
+              <a href="" class="btn btn-icon-m btn-ghost"
+                ><img src="/img/icon/power-outline.svg" alt="logout"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex flex-col gap-10">
+          <div class="text-container relative">
+            <div class="foreground-gray-strong text-2xl font-bold">APIs</div>
+          </div>
+          <div class="divider"></div>
+          <div class="flex-col">
+            <div class="section-container">
+              <div class="section">
+                <div class="section-header relative">
+                  <a
+                    href="/html/AP-01-01.html"
+                    class="btn btn-ghost btn-icon-m absolute -left-8"
+                    onclick="history.back()"
+                    ><img src="/img/icon/chevron-left-outline.svg" alt=""
+                  /></a>
+                  <span>의료 STT</span>
+                </div>
+                <div class="section-body flex-col">
+                  <div class="form-container">
+                    <div class="flex flex-row gap-4">
+                      <label class="label-m" for="text">사용처</label>
+                      <div class="textfield flex flex-row">
+                        <input
+                          class="textfield-placeholder"
+                          type="text"
+                          placeholder="사용처를 입력해주세요."
+                          value="양지병원 입원병동"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="flex flex-row items-start gap-4">
+                      <label class="label-m" for="number">동시 접속 수</label>
+                      <div class="flex flex-col gap-2">
+                        <div class="stepper-container">
+                          <div class="stepper">
+                            <button
+                              class="stepper-button decrement-button"
+                              id="decrement-button"
+                              aria-label="Decrease value"
+                            >
+                              <div class="stepper-icon stepper-icon-left"></div>
+                            </button>
+                            <input
+                              type="number"
+                              class="stepper-input"
+                              id="stepper-input"
+                              aria-labelledby="stepper-label"
+                              value="1"
+                              required
+                            />
+                            <button
+                              class="stepper-button increment-button"
+                              id="increment-button"
+                              aria-label="Increase value"
+                            >
+                              <div
+                                class="stepper-icon stepper-icon-right"
+                              ></div>
+                            </button>
+                          </div>
+                        </div>
+                        <span class="text-xs font-normal"
+                          >동시 접속 수는 동시에 API를 사용할 수 있는
+                          사용자(또는 장치)의 수를 의미합니다. 동시 접속 수가
+                          초과되면 추가 요청은 대기 상태가 되거나 거부될 수
+                          있으므로, 예상되는 사용량을 고려하여 적절히 설정해
+                          주세요.</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex flex-row items-center gap-4">
+                      <label class="label-m" for="text">API Key</label>
+                      <div class="textfield flex flex-row">
+                        <input
+                          class="textfield-placeholder"
+                          type="text"
+                          value="abcd1234efgh5678abcd1234efgh5678abcd1234efgh5678abcd1234efgh5678"
+                        />
+                        <a
+                          href=""
+                          class="btn btn-neutral btn-outline btn-icon-m"
+                          ><img
+                            src="/img/icon/document-duplicate-outline.svg"
+                            alt=""
+                        /></a>
+                        <a
+                          class="btn btn-m btn-neutral btn-outline"
+                          onclick="openModal('modal-api-reissue')"
+                        >
+                          재발급
+                        </a>
+                      </div>
+                    </div>
+                    <div class="flex flex-row gap-4">
+                      <label class="label-m" for="text">결제정보</label>
+                      <div class="flex w-full flex-col">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>월 요금</th>
+                              <th>사용 시작일</th>
+                              <th>다음 결제일</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="td-money">12,000</td>
+                              <td>2024/03/31</td>
+                              <td>2024/04/30</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="btn-container">
+                      <a
+                        href="#"
+                        class="btn btn-l btn-neutral btn-soft w-[120px]"
+                        onclick="openModal('modal-unsubscribe')"
+                        >구독 취소</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-l btn-wide btn-primary"
+                        onclick="openModal('modal-change-payinfo')"
+                        >수정</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section fill-gray-subtler">
+                <div class="section-header">
+                  <span>관리자</span>
+                </div>
+                <div class="section-body">
+                  <div class="form-container">
+                    <div class="flex flex-row gap-4">
+                      <div class="label-m">중간관리자</div>
+                      <div class="flex w-full flex-col gap-2">
+                        <div class="listprofile-container">
+                          <div class="profile-container">
+                            <div class="profile">
+                              <img src="/img/icon/user-outline.svg" alt="" />
+                            </div>
+                            <div class="profile-info">
+                              <div class="flex flex-row gap-2">
+                                <span>홍길동</span>
+                              </div>
+                              <div>gildong@gmail.com</div>
+                            </div>
+                            <div class="profile-btn">
+                              <a href="" class="btn btn-s btn-soft btn-neutral"
+                                >삭제</a
+                              >
+                            </div>
+                          </div>
+                          <a
+                            class="btn btn-m btn-neutral btn-soft"
+                            onclick="openModal('modal-add-midadmin')"
+                            >중간관리자 추가
+                            <img src="/img/icon/plus-circle-solid.svg" alt=""
+                          /></a>
+                          <span class="text-xs font-normal"
+                            >(임시) 중간 관리자는 결제를 제외한 모든 권한을
+                            가지고 있습니다.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full flex-row gap-4">
+                      <div class="label-m">파트너사</div>
+                      <div class="flex w-full flex-col gap-2">
+                        <div class="search-container">
+                          <div class="textfield flex flex-row">
+                            <input
+                              class="textfield-placeholder"
+                              type="text"
+                              placeholder="파트너사를 입력해주세요."
+                              readonly
+                            />
+                            <a class="btn btn-primary btn-m search-btn"
+                              >검색
+                            </a>
+                          </div>
+                          <div class="search-results">
+                            <ul class="search-results-list">
+                              <!-- 검색 결과가 여기에 동적으로 추가됩니다 -->
+                            </ul>
+                          </div>
+                        </div>
+                        <span class="text-xs font-normal"
+                          >• 사전 협의된 파트너사만 추가할 수 있습니다.<br />
+                          • 협의되지 않은 파트너사를 추가할 경우, 설정이 취소될
+                          수 있습니다. <br />
+                          • 파트너사 설정을 통해 관리 권한을 위임하므로, 신뢰할
+                          수 있는 업체인지 꼭 확인해 주세요.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <dialog id="modal-add-midadmin" class="modal">
+        <div class="modal-box modal-box-m">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-add-midadmin')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>관리자 계정 등록</span>
+          </div>
+          <div class="modal-body flex flex-col gap-4">
+            <div class="flex flex-col">
+              <label class="label-m" for="text">링크 복사</label>
+              <div class="textfield flex flex-row">
+                <input
+                  class="textfield-placeholder"
+                  type="url"
+                  value="https://intelloia.com/admin/add"
+                />
+                <div class="relative">
+                  <a
+                    href="#"
+                    class="btn btn-neutral btn-outline btn-icon-m"
+                    onclick="startLinkTimer(this)"
+                  >
+                    <img
+                      src="/img/icon/document-duplicate-outline.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="foreground-gray-default mt-2 flex flex-row justify-end gap-3 text-xs"
+              >
+                <span class="help-text invisible">링크 재발급 받기</span>
+                <span class="timer foreground-brand-default invisible"
+                  >30:00</span
+                >
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <label class="label-m" for="text">메일로 링크 전송</label>
+              <div class="textfield flex flex-row">
+                <input
+                  class="textfield-placeholder"
+                  type="email"
+                  placeholder="이메일을 입력해주세요."
+                />
+                <a
+                  href=""
+                  class="btn btn-neutral btn-outline btn-m"
+                  onclick="showEmailHelpText(this)"
+                  >전송</a
+                >
+              </div>
+              <div
+                class="foreground-gray-default mt-2 flex flex-row justify-end gap-3 text-xs"
+              >
+                <span class="email-help-text invisible"
+                  >메일로 링크가 전송되었습니다.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-api-reissue" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-api-reissue')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>API Key 재발급</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              API Key를 재발급하시겠습니까?<br />재발급시 기존 API Key는 사용할
+              수 없습니다.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-wide btn-primary btn-soft"
+                onclick="closeModal('modal-api-reissue')"
+                >취소</a
+              >
+              <a href="#" class="btn btn-m btn-wide btn-primary">재발급</a>
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-unsubscribe" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-unsubscribe')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>구독 취소</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              구독 취소를 진행하시겠습니까?<br />구독 취소시 현재까지의 플랜만
+              적용됩니다.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-primary btn-wide btn-soft"
+                onclick="closeModal('modal-unsubscribe')"
+                >구독 유지</a
+              >
+              <a href="#" class="btn btn-m btn-wide btn-primary">구독 취소</a>
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-change-payinfo" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-change-payinfo')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>구독 정보 변경</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              구독 정보를 변경하시겠습니까?<br />변경 시 추가 결제가 진행됩니다.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-primary btn-wide btn-soft"
+                onclick="closeModal('modal-change-payinfo')"
+                >취소</a
+              >
+              <a href="#" class="btn btn-m btn-wide btn-primary">변경</a>
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-admin-delete" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-admin-delete')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>관리자 계정 삭제</span>
+          </div>
+          <div class="modal-body">
+            <p>중간 관리자를 삭제하시겠습니까?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-primary btn-wide btn-soft"
+                onclick="closeModal('modal-admin-delete')"
+                >관리자 유지</a
+              >
+              <a href="#" class="btn btn-m btn-wide btn-primary">관리자 삭제</a>
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-partner-del" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-partner-del')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>파트너사 삭제</span>
+          </div>
+          <div class="modal-body">
+            <p>파트너사 삭제 시 관리 권한이 해제됩니다.</p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container">
+              <a
+                href="#"
+                class="btn btn-m btn-primary btn-wide btn-soft"
+                onclick="closeModal('modal-partner-del')"
+                >파트너사 유지</a
+              >
+              <a href="#" class="btn btn-m btn-wide btn-primary"
+                >파트너사 삭제</a
+              >
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+    </main>
+  </body>
+</html>

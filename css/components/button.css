@@ -1,7 +1,7 @@
+/* 기본 버튼 스타일 */
 .btn {
   display: inline-flex;
   flex-shrink: 0;
-  cursor: pointer;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
@@ -9,109 +9,80 @@
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
-  outline-offset: 2px;
-  user-select: none;
-  padding-inline: var(--btn-p);
-  color: var(--btn-fg);
-  height: var(--size);
   font-size: 0.875rem;
   font-weight: 600;
+  color: var(--btn-fg);
+  text-shadow: 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 0.15));
+  cursor: pointer;
+  user-select: none;
+  outline-offset: 2px;
   outline-color: var(--btn-color, var(--foreground-gray-subtler));
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 0.2s;
   background-color: var(--btn-bg);
   border-style: solid;
+  border-width: 1px;
   border-color: var(--btn-border);
-  text-shadow: 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 0.15));
   box-shadow:
     0 0.5px 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 6%)) inset,
     var(--btn-shadow);
+  /* 기본 변수 */
   --btn-bg: var(--btn-color, var(--gray-100));
   --btn-fg: var(--white-000);
   --btn-p: 1rem;
   --btn-border: color-mix(in oklab, var(--btn-bg), #000 calc(1 * 5%));
+}
 
-  @media (hover: hover) {
-    &:hover {
-      --btn-bg: color-mix(in oklch, var(--btn-color, var(--gray-100)), #000 7%);
-      box-shadow: 0 0 8px 4px
-        color-mix(in oklch, var(--btn-color) 12%, var(--gray-050) 12%);
-      transition: 500ms;
-    }
-  }
+/* 상태 */
 
-  &.btn-active {
-    --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 7%);
-    --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
-    isolation: isolate;
-  }
+.btn:hover {
+  --btn-bg: color-mix(in oklch, var(--btn-color, var(--gray-100)), #000 7%);
 
-  &:focus-visible {
-    outline-width: 2px;
-    outline-style: solid;
-  }
+  transition: 200ms;
+}
+.btn.btn-active {
+  --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 7%);
+  --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
 
-  &:active:not(.btn-active) {
-    translate: 0 0.5px;
-    --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 5%);
-    --btn-border: color-mix(
-      in oklab,
-      var(--btn-color, var(--gray-100)),
-      #000 7%
-    );
-    --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
-  }
+  isolation: isolate;
+}
+.btn:active:not(.btn-active) {
+  translate: 0 0.5px;
 
-  &:is(:disabled, [disabled], .btn-disabled) {
-    &:not(.btn-link, .btn-ghost) {
-      background-color: color-mix(
-        in oklch,
-        var(--btn-color, var(--gray-050)) 8%,
-        var(--gray-050)
-      );
-      box-shadow: none;
-      color: color-mix(
-        in oklch,
-        var(--btn-color, var(--gray-500)) 50%,
-        transparent
-      );
-    }
+  --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 5%);
+  --btn-border: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 7%);
+  --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
+}
+.btn:is(:disabled, [disabled], .btn-disabled):not(.btn-link, .btn-ghost) {
+  background-color: color-mix(in oklch, var(--btn-color, var(--gray-100)) 5%, transparent 95%);
+  box-shadow: none;
+  color: color-mix(in oklch, var(--btn-color, var(--gray-500)) 50%, transparent);
+  --btn-fg: color-mix(in oklch, var(--gray-050) 5%, transparent 90%);
+  --btn-border: color-mix(in oklch, var(--btn-color, var(--gray-200)) 10%, transparent 90%);
+  pointer-events: none;
+  --btn-noise: none;
+}
 
-    pointer-events: none;
+@media (hover: hover) {
+  .btn:is(:disabled, [disabled], .btn-disabled):hover {
+    background-color: color-mix(in oklch, var(--gray-050) 10%, transparent);
+
     --btn-border: transparent;
-    --btn-noise: none;
     --btn-fg: color-mix(in oklch, var(--gray-050) 20%, transparent);
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: color-mix(in oklch, var(--gray-050) 10%, transparent);
-        --btn-border: transparent;
-        --btn-fg: color-mix(in oklch, var(--gray-050) 20%, transparent);
-      }
-    }
-  }
-
-  &:is(input[type="checkbox"], input[type="radio"]) {
-    &::after {
-      content: attr(aria-label);
-    }
-
-    &:checked {
-      outline-width: 2px;
-      outline-style: solid;
-      --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 7%);
-      --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
-      isolation: isolate;
-    }
   }
 }
 
-/* --- btn color --- */
+/* 버튼 색상 */
 
 .btn-primary {
   --btn-color: var(--orange-500);
   --btn-fg: var(--orange-050);
+}
+
+.btn-primary img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(249deg)
+    brightness(103%) contrast(103%);
 }
 
 .btn-secondary {
@@ -124,102 +95,116 @@
   --btn-fg: var(--gray-050);
 }
 
-/* --- btn style --- */
+/* 버튼 스타일 */
 
-.btn-outline {
-  &:not(
-      .btn-active,
-      :hover,
-      :active:focus,
-      :focus-visible,
-      :disabled,
-      [disabled],
-      .btn-disabled
-    ) {
-    --btn-shadow: "";
-    --btn-bg: #0000;
-    --btn-border: var(--btn-fg);
-    --btn-noise: none;
-  }
+.btn-outline:not(.btn-active, :active:focus, :focus-visible, :disabled, .btn-disabled) {
+  --btn-shadow: '';
+  --btn-bg: var(--fill-white);
+  --btn-border: rgb(from var(--btn-color) r g b / 30%);
+  --btn-fg: var(--btn-color);
 }
+
+.btn-outline:hover {
+  background-color: color-mix(in oklab, var(--btn-border) 30%, var(--fill-white) 70%);
+  transition: 200ms;
+}
+
+/* 소프트 스타일 */
+
+.btn-soft:not(.btn-active, :active:focus, :focus-visible, :disabled, [disabled], .btn-disabled) {
+  --btn-shadow: '';
+  --btn-fg: var(--btn-color, var(--gray-050));
+  --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-050)) 8%, var(--gray-050));
+  --btn-border: color-mix(in oklab, var(--btn-color, var(--gray-050)) 10%, var(--gray-050));
+}
+
+.btn-soft:hover {
+  background-color: color-mix(in oklab, var(--btn-bg) 80%, var(--btn-color) 20%);
+}
+
+/* 고스트 스타일 */
 
 .btn-ghost {
-  &:not(.btn-active, :hover, :active:focus, :focus-visible) {
-    --btn-shadow: "";
-    --btn-bg: #0000;
-    --btn-border: #0000;
-    --btn-noise: none;
-    &:not(:disabled, [disabled], .btn-disabled) {
-      outline-color: currentColor;
-      --btn-fg: currentColor;
-    }
-  }
-  &:hover {
-    text-decoration: underline;
-  }
+  --btn-shadow: '';
+  --btn-bg: transparent;
+  --btn-border: transparent;
+  --btn-noise: none;
+  --btn-fg: currentcolor;
 }
 
-.btn-soft {
-  &:not(
-      .btn-active,
-      :hover,
-      :active:focus,
-      :focus-visible,
-      :disabled,
-      [disabled],
-      .btn-disabled
-    ) {
-    --btn-shadow: "";
-    --btn-fg: var(--btn-color, var(--gray-050));
-    --btn-bg: color-mix(
-      in oklab,
-      var(--btn-color, var(--gray-050)) 8%,
-      var(--gray-050)
-    );
-    --btn-border: color-mix(
-      in oklab,
-      var(--btn-color, var(--gray-050)) 10%,
-      var(--gray-050)
-    );
-    --btn-noise: none;
-  }
+.btn-ghost:not(.btn-active, :active, :focus, :focus-visible) {
+  outline-color: currentcolor;
 }
 
-/* 
-.btn-dg {
-  background: linear-gradient(90deg, #ffba89, #e53d67, #ffba89);
-  background-size: 200% 100%;
-  color: white;
+.btn-ghost:not(:disabled, [disabled], .btn-disabled) {
+  outline-color: currentcolor;
 }
 
-.btn-dg:hover {
-  animation: gradient 2s linear infinite;
+.btn-ghost:hover {
+  text-decoration: underline;
+  background-color: color-mix(in oklab, currentcolor 20%, transparent 80%);
 
-  @keyframes gradient {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
 }
-} */
 
-/* --- btn size --- */
+.btn:is(input[type='checkbox'], input[type='radio'])::after {
+  content: attr(aria-label);
+}
+
+.btn:is(input[type='checkbox'], input[type='radio']):checked {
+  outline-width: 2px;
+  outline-style: solid;
+
+  --btn-bg: color-mix(in oklab, var(--btn-color, var(--gray-100)), #000 7%);
+  --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
+
+  isolation: isolate;
+}
+
+/* 버튼 크기 */
 
 .btn-s {
   border-radius: var(--radius-4);
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   font-size: var(--text-xs);
   line-height: var(--text-xs--line-height);
 }
 
 .btn-m {
-  border-radius: var(--radius-8);
-  padding: 8px 16px;
+  border-radius: var(--radius-6);
+  padding: 0.5rem 1rem;
   font-size: var(--text-sm);
   line-height: var(--text-sm--line-height);
+  height: 2.25rem;
 }
+
+.btn-l {
+  border-radius: var(--radius-8);
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-md);
+  line-height: var(--text-md--line-height);
+}
+
+.btn-icon-s {
+  padding: 0.25rem;
+  border-radius: var(--radius-4);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.btn-icon-m {
+  padding: 0.5rem;
+  border-radius: var(--radius-6);
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.btn-icon-l {
+  padding: 0.75rem;
+  border-radius: var(--radius-8);
+}
+
+/* 너비 */
 
 .btn-wide {
   width: 100%;
@@ -228,4 +213,11 @@
 
 .btn-block {
   width: 100%;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }

@@ -1,0 +1,29 @@
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-4, 4px);
+}
+
+.pagination-item {
+  display: flex;
+  width: var(--size-28, 28px);
+  height: var(--size-28, 28px);
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-4, 4px);
+  cursor: pointer;
+}
+
+.pagination-item:hover {
+  background: var(--fill-gray-subtle);
+}
+
+.pagination-page {
+}

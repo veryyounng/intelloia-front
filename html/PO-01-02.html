@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | 포인트 내역</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <div class="flex flex-row items-end gap-1">
+          <a href="/html/MY-01-01.html">
+            <img src="/img/logo.png" alt="intelloia logo" />
+          </a>
+          <a href="/html/LA-01.html" class="btn btn-icon-s btn-ghost pb-1"
+            ><img src="/img/icon/square-arrow-out-up-right 1.svg" alt=""
+          /></a>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          <li>
+            <a href="/html/MY-01-01.html"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="MY 사용내역"
+              />MY 사용내역</a
+            >
+          </li>
+          <li>
+            <a href="/html/AP-01-01.html"
+              ><img
+                src="/img/icon/command-line-outline.svg"
+                alt="APIs"
+              />APIs</a
+            >
+          </li>
+          <li>
+            <a href="/html/SV-01-01.html"
+              ><img
+                src="/img/icon/building-storefront-outline.svg"
+                alt="Services"
+              />Services</a
+            >
+          </li>
+          <li>
+            <a href="/html/PO-01-01.html" class="menu-active"
+              ><img
+                src="/img/icon/credit-card-outline.svg"
+                alt="포인트 내역"
+              />포인트 내역</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MM-01-01.html"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+        </ul>
+        <div class="divider"></div>
+        <div class="menu-footer align-center flex w-full flex-col items-center">
+          <div class="profile-container">
+            <div class="profile">
+              <img src="/img/icon/user-outline.svg" alt="" />
+            </div>
+            <div class="profile-info">
+              <div class="flex flex-row gap-2">
+                <span>홍길동</span>
+                <span class="chip chip-neutral chip-s">Owner</span>
+              </div>
+              <div>gildong@gmail.com</div>
+            </div>
+            <div class="profile-btn">
+              <a href="" class="btn btn-icon-m btn-ghost"
+                ><img src="/img/icon/power-outline.svg" alt="logout"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex flex-col gap-10">
+          <div class="text-container relative">
+            <div class="foreground-gray-strong text-2xl font-bold">
+              포인트 내역
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="flex-col">
+            <div class="section-container flex-col">
+              <div class="section section-plain">
+                <div class="section-header">
+                  <span>포인트</span>
+                </div>
+                <div class="section-body flex-row">
+                  <div class="section-m-2 section-m">
+                    <div class="section-body">
+                      <div class="listcard-container">
+                        <div class="listcard-item justify-between">
+                          <div class="label-m">보유 포인트</div>
+                          <div class="label-l text-right">
+                            <span>-</span><span> P</span>
+                          </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="listcard-item justify-between">
+                          <div class="label-m">
+                            소멸 예정 포인트 (30일 이내)
+                          </div>
+                          <div class="label-l text-right foreground-gray-subtle">
+                            <span>-</span><span>6,000</span><span> P</span>
+                            <div
+                              class="flex flex-row gap-2 mt-2"
+                            >
+                              <a
+                                href="#"
+                                class="btn btn-s btn-neutral btn-outline"
+                                onclick="openModal('modal-pt-disappear')"
+                                disabled
+                                >상세 내역</a
+                              >
+                              <a
+                                href="#"
+                                class="btn btn-s btn-neutral btn-outline"
+                                onclick="openModal('modal-pt-refund')"
+                                disabled
+                                >포인트 환불</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section section-m">
+                    <div class="section-body flex-col">
+                      <span class="label-m">포인트 충전</span>
+                      <div class="section-body flex-col">
+                        <div class="btn-container flex flex-row gap-2">
+                          <a
+                            href="#"
+                            class="btn btn-m btn-primary btn-wide"
+                            onclick="openModal('modal-pt-charging')"
+                            >직접 입력</a
+                          >
+                          <a
+                            href="#"
+                            class="btn btn-m btn-primary btn-outline btn-wide"
+                            >1만원</a
+                          >
+                          <a
+                            href="#"
+                            class="btn btn-m btn-primary btn-outline btn-wide"
+                            >3만원</a
+                          >
+                          <a
+                            href="#"
+                            class="btn btn-m btn-primary btn-outline btn-wide"
+                            >5만원</a
+                          >
+                          <a
+                            href="#"
+                            class="btn btn-m btn-primary btn-outline btn-wide"
+                            >10만원</a
+                          >
+                        </div>
+                        <span class="helptext"
+                          ><img
+                            src="/img/icon/information-circle-outline.svg"
+                            alt=""
+                          />충전 금액은 포인트로 전환되고 1년 내로 포인트가
+                          소진되어야 합니다.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section section-plain">
+                <div class="section-header">사용내역</div>
+                <div class="section-filter flex flex-row justify-between gap-2">
+                  <div class="tab-container tab-m">
+                    <div class="tab tab-active">
+                      <span>전체 내역</span>
+                    </div>
+                    <div class="tab">
+                      <span>서비스 사용</span>
+                    </div>
+                    <div class="tab">
+                      <span>API 사용</span>
+                    </div>
+                    <div class="tab">
+                      <span>포인트 충전</span>
+                    </div>
+                    <div class="tab">
+                      <span>포인트 환불</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                    <div class="textfield-container">
+                      <div class="textfield flex flex-row gap-2">
+                        <input type="date" class="textfield-placeholder" />
+                        <span class="textfield-suffix">~</span>
+                        <input type="date" class="textfield-placeholder" />
+                      </div>
+                    </div>
+                    <div class="btn btn-m btn-primary">검색</div>
+                  </div>
+                </div>
+                <div class="section-body flex-col">
+                  <div class="overflow-x-auto">
+                    <table class="table">
+                      <!-- head -->
+                      <thead>
+                        <tr>
+                          <th>날짜</th>
+                          <th>유형</th>
+                          <th>상세 내용</th>
+                          <th>동시 계정 / 플랜</th>
+                          <th>포인트 내역</th>
+                          <th>잔여 포인트</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="">
+                          <td colspan="6" class="text-center">사용 중인 API/Service가 없습니다.
+                            API/Service 사용 후 이곳에서 확인할 수 있습니다.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pagination-container">
+                    <div class="pagination">
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-left-solid.svg" alt="" />
+                      </a>
+                      <a class="pagination-item pagination-page">1</a>
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-right-solid.svg" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <dialog id="modal-pt-charging" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-pt-charging')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>포인트 충전</span>
+            <p class="text-sm">(임시)0원부터 100만원까지 충전 가능합니다.</p>
+          </div>
+          <div class="modal-body">
+            <div class="textfield">
+              <div class="textfield-container">
+                <input
+                  class="textfield-placeholder"
+                  type="number"
+                  placeholder="0"
+                />
+                <span class="textfield-suffix">원</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container flex flex-row gap-2">
+              <a
+                class="btn btn-m btn-soft btn-primary btn-wide"
+                onclick="closeModal('modal-pt-charging')"
+              >
+                취소
+              </a>
+              <a
+                class="btn btn-m btn-primary btn-wide"
+                onclick="
+                closeModal('modal-pt-charging');
+                openModal('modal-pt-charged');
+                "
+                >충전</a
+              >
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-pt-charged" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-pt-charged')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>포인트 충전 완료</span>
+            <p class="text-sm">포인트 충전이 완료되었습니다.</p>
+          </div>
+          <div class="modal-body">
+            <span>
+              <img src="/img/icon/check-circle-outline.svg" alt="complete" />
+            </span>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container flex flex-row gap-2">
+              <a
+                class="btn btn-m btn-primary btn-wide"
+                onclick="closeModal('modal-pt-charged')"
+                >확인</a
+              >
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-pt-pay" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-pt-pay')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>포인트 결제</span>
+            <p class="text-sm">
+              포인트 결제를 진행하시겠습니까? <br />포인트 결제 후 바로 API를
+              사용할 수 있습니다.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container flex flex-row gap-2">
+              <a
+                class="btn btn-m btn-primary btn-wide"
+                onclick="
+                closeModal('modal-pt-pay');
+                openModal('modal-pt-charging');
+                "
+                >확인</a
+              >
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-pt-disappear" class="modal">
+        <div class="modal-box modal-box-s">
+          <a
+            href="#"
+            class="modal-close btn btn-icon-m btn-ghost"
+            onclick="closeModal('modal-pt-disappear')"
+          >
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            <span>소멸 예정 포인트</span>
+          </div>
+          <div class="modal-body gap-2 flex flex-col">
+            <span class="text-2xl font-bold span-point foreground-brand-default">6,000</span>
+            <p class="flex flex-col gap-1">
+              <span class="text-sm">상세 내역</span>
+            <span class="text-xs foreground-gray-subtler">조회 기간 : 2025/03/26 ~ 2025/04/26</span></p>
+            <div class="list-container">
+                <ul class="list-item">
+                  <li>
+                    <span>2025/03/28</span>
+                    <span class="span-point">5,000</span>
+                  </li>
+                  <li>
+                    <span>2025/03/28</span>
+                    <span class="span-point">5,000</span>
+                  </li>
+                  <li>
+                    <span>2025/03/28</span>
+                    <span class="span-point">5,000</span>
+                  </li>
+                  <li>
+                    <span>2025/03/28</span>
+                    <span class="span-point">5,000</span>
+                  </li>
+                </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-container flex flex-row gap-2 justify-center">
+              <a
+                class="btn btn-m btn-primary"
+                onclick="
+                closeModal('modal-pt-pay');
+                "
+                >확인</a
+              >
+            </div>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"></form>
+      </dialog>
+      <dialog id="modal-pt-refund" class="modal">
+        <div class="modal-box modal-box-s">
+          <a href="#" class="modal-close btn btn-icon-m btn-ghost" onclick="closeModal('modal-pt-refund')">
+            <img src="/img/icon/x-mark-outline.svg" alt="" />
+          </a>
+          <div class="modal-header">
+            
+        </div>
+      </dialog>
+    </main>
+  </body>
+</html>

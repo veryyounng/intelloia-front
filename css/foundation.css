@@ -1,16 +1,17 @@
 :where(html) {
+
   /* --- COLORS --- */
-  --white-000: #ffffff;
+  --white-000: #fff;
   --gray-050: #f8f9fa;
   --gray-100: #f1f3f5;
   --gray-200: #dee2e6;
   --gray-300: #ced4da;
   --gray-400: #adb5bd;
   --gray-500: #868e96;
-  --gray-600: #495057;
-  --gray-700: #343a40;
-  --gray-800: #212529;
-  --gray-900: #16191d;
+  --gray-600: #676e76;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
   --red-050: #fef3f2;
   --red-100: #ffe3e1;
   --red-200: #ffcbc8;
@@ -62,34 +63,57 @@
   --yellow-800: #8c5e32;
   --yellow-900: #6b4826;
 
-  --background-gray-subtler: var(--gray-050);
+  /* --background-gray-subtler: var(--gray-050);
   --background-gray-subtle: var(--gray-100);
   --background-gray-default: var(--gray-200);
-  --background-gray-strong: var(--gray-300);
+  --background-gray-strong: var(--gray-300); */
+  --background-gray-subtler: var(--gray-100);
+  --background-gray-subtle: var(--gray-200);
+  --background-gray-default: var(--gray-300);
+  --background-gray-strong: var(--gray-400);
   --background-white: var(--white-000);
   --background-black: var(--gray-900);
   --fill-white: var(--white-000);
-  --fill-gray-subtler: var(--gray-050);
+
+  /* --fill-gray-subtler: var(--gray-050);
   --fill-gray-subtle: var(--gray-100);
   --fill-gray-default: var(--gray-300);
   --fill-gray-strong: var(--gray-600);
-  --fill-gray-stronger: var(--gray-800);
+  --fill-gray-stronger: var(--gray-800); */
+  --fill-gray-subtler: var(--gray-100);
+  --fill-gray-subtle: var(--gray-300);
+  --fill-gray-default: var(--gray-500);
+  --fill-gray-strong: var(--gray-700);
+  --fill-gray-stronger: var(--gray-900);
   --fill-blue-subtler: var(--blue-050);
   --fill-blue-subtle: var(--blue-200);
   --fill-blue-default: var(--blue-400);
   --fill-blue-strong: var(--blue-600);
   --fill-blue-stronger: var(--blue-800);
+  --fill-green-subtler: var(--green-050);
+  --fill-green-subtle: var(--green-300);
+  --fill-green-default: var(--green-500);
+  --fill-green-strong: var(--green-700);
+  --fill-green-stronger: var(--green-900);
   --fill-brand-subtler: var(--orange-050);
   --fill-brand-subtle: var(--orange-200);
   --fill-brand-default: var(--orange-500);
   --fill-brand-strong: var(--orange-600);
   --fill-brand-stronger: var(--orange-700);
   --foreground-white: var(--white-000);
-  --foreground-gray-subtler: var(--gray-100);
+
+  /* --foreground-gray-subtlest: var(--gray-100);
+  --foreground-gray-subtler: var(--gray-200);
   --foreground-gray-subtle: var(--gray-400);
   --foreground-gray-default: var(--gray-500);
   --foreground-gray-strong: var(--gray-600);
-  --foreground-gray-stronger: var(--gray-800);
+  --foreground-gray-stronger: var(--gray-700); */
+  --foreground-gray-subtlest: var(--gray-200);
+  --foreground-gray-subtler: var(--gray-400);
+  --foreground-gray-subtle: var(--gray-500);
+  --foreground-gray-default: var(--gray-600);
+  --foreground-gray-strong: var(--gray-800);
+  --foreground-gray-stronger: var(--gray-900);
   --foreground-blue-subtler: var(--blue-100);
   --foreground-blue-subtle: var(--blue-300);
   --foreground-blue-default: var(--blue-500);
@@ -160,6 +184,7 @@
   --size-56: 56px;
   --size-64: 64px;
   --size-80: 80px;
+  --size-88: 88px;
   --size-96: 96px;
   --size-112: 112px;
   --size-128: 128px;
@@ -178,6 +203,7 @@
   /* --- BORDER RADIUS --- */
   --radius-0: 0;
   --radius-4: 4px;
+  --radius-6: 6px;
   --radius-8: 8px;
   --radius-12: 12px;
   --radius-16: 16px;
@@ -193,129 +219,182 @@
   --ratio-widescreen: 16/9;
   --ratio-ultrawide: 18/5;
   --ratio-golden: 1.618/1;
+  --main-content-pt: var(--size-44);
+  --main-content-pl: var(--size-0);
+  --main-content-pr: var(--size-32);
+  --main-content-pb: var(--size-44);
+  --content-pt: var(--size-64);
+  --content-pl: var(--size-88);
+  --content-pr: var(--size-88);
+  --content-pb: var(--size-44);
+  --content-gap: var(--size-32);
+  --section-container-gap: var(--size-40);
+  --section-gap: var(--size-20);
+  --section-body-gap: var(--size-20);
+  --form-gap: var(--size-24);
 }
 
 /* etc */
+
 .box-shadow {
-  border: 1px solid var(--foreground-gray-subtler);
+  border: 1px solid var(--foreground-gray-subtlest);
   box-shadow: 0 0 8px 1px oklch(0% 0 0 / 0.01);
 }
 
 /* --- need to translate tailwind variable --- */
+
 .background-gray-subtler {
   background-color: var(--background-gray-subtler);
 }
+
 .background-gray-subtle {
   background-color: var(--background-gray-subtle);
 }
+
 .background-gray-default {
   background-color: var(--background-gray-default);
 }
+
 .background-gray-strong {
   background-color: var(--background-gray-strong);
 }
+
 .background-gray-stronger {
   background-color: var(--background-gray-stronger);
 }
+
 .background-white {
   background-color: var(--background-white);
 }
+
 .background-black {
   background-color: var(--background-black);
 }
+
 .fill-white {
   background-color: var(--fill-white);
 }
+
 .fill-gray-subtler {
   background-color: var(--fill-gray-subtler);
 }
+
 .fill-gray-subtle {
   background-color: var(--fill-gray-subtle);
 }
+
 .fill-gray-default {
   background-color: var(--fill-gray-default);
 }
+
 .fill-gray-strong {
   background-color: var(--fill-gray-strong);
 }
+
 .fill-gray-stronger {
   background-color: var(--fill-gray-stronger);
 }
+
 .fill-blue-subtler {
   background-color: var(--fill-blue-subtler);
 }
+
 .fill-blue-subtle {
   background-color: var(--fill-blue-subtle);
 }
+
 .fill-blue-default {
   background-color: var(--fill-blue-default);
 }
+
 .fill-blue-strong {
   background-color: var(--fill-blue-strong);
 }
+
 .fill-blue-stronger {
   background-color: var(--fill-blue-stronger);
 }
+
 .fill-brand-subtler {
   background-color: var(--fill-brand-subtler);
 }
+
 .fill-brand-subtle {
   background-color: var(--fill-brand-subtle);
 }
+
 .fill-brand-default {
   background-color: var(--fill-brand-default);
 }
+
 .fill-brand-strong {
   background-color: var(--fill-brand-strong);
 }
+
 .fill-brand-stronger {
   background-color: var(--fill-brand-stronger);
 }
+
 .foreground-white {
   color: var(--foreground-white);
 }
+
 .foreground-gray-subtler {
   color: var(--foreground-gray-subtler);
 }
+
 .foreground-gray-subtle {
   color: var(--foreground-gray-subtle);
 }
+
 .foreground-gray-default {
   color: var(--foreground-gray-default);
 }
+
 .foreground-gray-strong {
   color: var(--foreground-gray-strong);
 }
+
 .foreground-gray-stronger {
   color: var(--foreground-gray-stronger);
 }
+
 .foreground-blue-subtler {
   color: var(--foreground-blue-subtler);
 }
+
 .foreground-blue-subtle {
   color: var(--foreground-blue-subtle);
 }
+
 .foreground-blue-default {
   color: var(--foreground-blue-default);
 }
+
 .foreground-blue-strong {
   color: var(--foreground-blue-strong);
 }
+
 .foreground-blue-stronger {
   color: var(--foreground-blue-stronger);
 }
+
 .foreground-brand-subtler {
   color: var(--foreground-brand-subtler);
 }
+
 .foreground-brand-subtle {
   color: var(--foreground-brand-subtle);
 }
+
 .foreground-brand-default {
   color: var(--foreground-brand-default);
 }
+
 .foreground-brand-strong {
   color: var(--foreground-brand-strong);
 }
+
 .foreground-brand-stronger {
   color: var(--foreground-brand-stronger);
 }

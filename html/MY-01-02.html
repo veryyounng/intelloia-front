@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | MY 사용내역</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw overflow-y-hidden">
+    <main class="main">
+      <div class="menu">
+        <div class="flex flex-row items-end gap-1">
+          <a href="/html/MY-01-01.html">
+            <img src="/img/logo.png" alt="intelloia logo" />
+          </a>
+          <a href="/html/LA-01.html" class="btn btn-icon-s btn-ghost pb-1"
+            ><img src="/img/icon/square-arrow-out-up-right 1.svg" alt=""
+          /></a>
+        </div>
+        <div class="divider"></div>
+        <ul>
+          <li>
+            <a href="/html/MY-01-01.html" class="menu-active"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="MY 사용내역"
+              />MY 사용내역</a
+            >
+          </li>
+          <li>
+            <a href="/html/AP-01-01.html"
+              ><img src="/img/icon/command-line-outline.svg" alt="s" />APIs</a
+            >
+          </li>
+          <li>
+            <a href="html/SV-01-01.html"
+              ><img
+                src="/img/icon/building-storefront-outline.svg"
+                alt="Services"
+              />Services</a
+            >
+          </li>
+          <li>
+            <a href="html/PO-01-01.html"
+              ><img
+                src="/img/icon/credit-card-outline.svg"
+                alt="포인트 내역"
+              />포인트 내역</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MM-01-01.html"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+        </ul>
+        <div class="divider"></div>
+        <div class="menu-footer align-center flex w-full flex-col items-center">
+          <div class="profile-container">
+            <div class="profile">
+              <img src="/img/icon/user-outline.svg" alt="" />
+            </div>
+            <div class="profile-info">
+              <div class="flex flex-row gap-2">
+                <span>홍길동</span>
+                <span class="chip chip-neutral chip-s">Owner</span>
+              </div>
+              <div>gildong@gmail.com</div>
+            </div>
+            <div class="profile-btn">
+              <a href="" class="btn btn-icon-m btn-ghost"
+                ><img src="/img/icon/power-outline.svg" alt="logout"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex flex-col">
+          <div class="text-container relative">
+            <div class="foreground-gray-strong text-2xl font-bold">
+              My 사용내역
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="section-container flex-col">
+            <div class="section-container flex-row">
+              <div class="section section-plain">
+                <div class="section-header">
+                  <span>MY APIs</span>
+                </div>
+                <div class="section-body flex-col">
+                  <div class="overflow-x-auto">
+                    <table class="table">
+                      <colgroup>
+                        <col style="width: 5%" />
+                        <col style="width: 20%" />
+                        <col style="width: 25%" />
+                        <col style="width: 10%" />
+                        <col style="width: 10%" />
+                        <col style="width: 15%" />
+                        <col style="width: 15%" />
+                      </colgroup>
+                      <!-- head -->
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>사용처</th>
+                          <th>사용 API</th>
+                          <th>중간관리자</th>
+                          <th>동시접속</th>
+                          <th>요금</th>
+                          <th>기타</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="7">
+                            <span>사용 중인 API가 없습니다.</span>
+                            <span>APIs에서 원하시는 API를 추가해주세요.</span>
+                            <a
+                              href="/html/AP-01-01.html"
+                              class="btn btn-primary btn-s"
+                              >APIs 바로가기
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pagination-container">
+                    <div class="pagination">
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-left-solid.svg" alt="" />
+                      </a>
+                      <a class="pagination-item pagination-page">1</a>
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-right-solid.svg" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section section-plain">
+                <div class="section-header">
+                  <span>MY Services</span>
+                </div>
+                <div class="section-body flex-col">
+                  <div class="overflow-x-auto">
+                    <table class="table">
+                      <colgroup>
+                        <col style="width: 5%" />
+                        <col style="width: 15%" />
+                        <col style="width: 10%" />
+                        <col style="width: 10%" />
+                        <col style="width: 15%" />
+                        <col style="width: 10%" />
+                        <col style="width: 15%" />
+                        <col style="width: 10%" />
+                      </colgroup>
+                      <!-- head -->
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>사용처</th>
+                          <th>사용 서비스</th>
+                          <th>중간관리자</th>
+                          <th>플랜</th>
+                          <th>계정 수</th>
+                          <th>요금</th>
+                          <th>기타</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="8">
+                            <span>사용 중인 Service가 없습니다.</span>
+                            <span
+                              >Services에서 원하시는 Service를
+                              추가해주세요.</span
+                            >
+                            <a
+                              href="/html/SV-01-01.html"
+                              class="btn btn-primary btn-s"
+                              >Services 바로가기</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pagination-container">
+                    <div class="pagination">
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-left-solid.svg" alt="" />
+                      </a>
+                      <a class="pagination-item pagination-page">1</a>
+                      <a class="pagination-item pagination-control">
+                        <img src="/img/icon/chevron-right-solid.svg" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section section-plain flex-col">
+              <div class="section-header">사용량</div>
+              <div class="section-filter flex flex-row justify-between gap-2">
+                <div class="tab-container tab-m">
+                  <div class="tab tab-active">
+                    <span>전체 내역</span>
+                  </div>
+                  <div class="tab">
+                    <span>서비스 사용</span>
+                  </div>
+                  <div class="tab">
+                    <span>API 사용</span>
+                  </div>
+                  <div class="tab">
+                    <span>포인트 충전</span>
+                  </div>
+                  <div class="tab">
+                    <span>포인트 환불</span>
+                  </div>
+                </div>
+                <div class="flex flex-row gap-2">
+                  <div class="textfield-container">
+                    <div class="textfield flex flex-row gap-2">
+                      <input type="date" class="textfield-placeholder" />
+                      <span class="textfield-suffix">~</span>
+                      <input type="date" class="textfield-placeholder" />
+                    </div>
+                  </div>
+                  <div class="btn btn-m btn-primary">검색</div>
+                </div>
+              </div>
+              <div class="section-body flex-col">
+                <div class="overflow-x-auto">
+                  <table class="table">
+                    <!-- head -->
+                    <thead>
+                      <tr>
+                        <th>날짜</th>
+                        <th>유형</th>
+                        <th>상세 내용</th>
+                        <th>동시 계정 / 플랜</th>
+                        <th>포인트 내역</th>
+                        <th>잔여 포인트</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan="6">
+                          <span>조회할 내역이 없습니다.</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="pagination-container">
+                  <div class="pagination">
+                    <a class="pagination-item pagination-control">
+                      <img src="/img/icon/chevron-left-solid.svg" alt="" />
+                    </a>
+                    <a class="pagination-item pagination-page">1</a>
+                    <a class="pagination-item pagination-control">
+                      <img src="/img/icon/chevron-right-solid.svg" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

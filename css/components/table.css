@@ -1,0 +1,164 @@
+/* table {
+  table-layout: fixed;
+} */
+
+.table {
+  font-size: 0.875rem;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-8);
+  background: var(--fill-white);
+  padding: 1rem;
+}
+
+.table tr {
+  cursor: default;
+}
+
+.table tr.row:hover,
+.table tr.row:nth-child(even):hover {
+  background-color: var(--fill-gray-subtler);
+}
+
+.table .td-money,
+.table .td-point {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+.table .td-count::after {
+  content: ' 개';
+}
+
+.table .td-money::after {
+  content: ' 원';
+}
+
+.table .td-people::after {
+  content: ' 명';
+}
+
+.table .td-point::after {
+  content: ' P';
+}
+
+.table .td-status-stop::before {
+  content: ' ';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--fill-brand-default);
+  margin-right: 0.5rem;
+}
+
+.table .td-status-inuse::before {
+  content: ' ';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--fill-green-default);
+  margin-right: 0.5rem;
+}
+
+.table th,
+.table td {
+  max-width: 200px;
+
+  /* min-width: 20px; */
+  padding: 0.25rem 0.5rem;
+  vertical-align: middle;
+  height: 2.25rem;
+  border-bottom: solid 1px var(--foreground-gray-subtlest);
+  @media (max-width: 1280px) {
+    max-width: 40px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.table th:first-of-type,
+.table td:first-of-type {
+  padding-left: 1rem;
+}
+
+.table th:last-of-type,
+.table td:last-of-type {
+  padding-right: 1rem;
+}
+
+.table td:has(span) {
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.td-api span {
+  display: inline-block;
+  width: 240px;
+}
+
+.table td span {
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.table td:has(a) {
+  padding: 0.25rem;
+}
+
+.table td a img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.table thead,
+.table tfoot {
+  background: var(--fill-gray-subtler);
+  color: var(--foreground-gray-subtle);
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: var(--font-weight-semibold);
+}
+
+.table tfoot {
+  border-top: var(--foreground-gray-subtler) solid
+    color-mix(in oklch, var(--foreground-gray-default) 5%, transparent);
+}
+
+.table-pin-rows thead tr {
+  background-color: var(--fill-gray-subtle, hsl(var(--b1)));
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table thead tr,
+.table tbody tr:not(:last-child) {
+  border-bottom: 1px solid color-mix(in oklch, var(--foreground-gray-default) 5%, transparent);
+}
+
+/* 빈 상태 스타일 */
+
+.table tr:first-of-type:last-of-type td:first-of-type:last-of-type {
+  width: 100%;
+  height: 108px;
+  text-align: center;
+}
+
+.table tr:first-of-type:last-of-type td span {
+  display: block;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+}
+
+.table tr:first-of-type:last-of-type td a {
+  margin-top: 0.5rem;
+}

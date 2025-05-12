@@ -1,0 +1,17 @@
+.divider {
+  display: flex;
+  height: 1px;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  white-space: nowrap;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  background-color: var(--foreground-gray-subtlest);
+  height: 1px;
+  width: 100%;
+  flex-grow: 1;
+}

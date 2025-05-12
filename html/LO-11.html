@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | 아이디 찾기</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main
+      class="background-gray-subtler flex h-dvh min-w-2xl flex-col items-center justify-center p-20"
+    >
+      <div
+        class="signup background-white box-shadow relative flex w-1/4 max-w-160 min-w-96 flex-col gap-6 rounded-xl p-10"
+      >
+        <div
+          class="text-container foreground-gray-default flex flex-col gap-4 text-center"
+        >
+          <div class="foreground-gray-strong text-2xl font-bold">
+            <a
+              href="#"
+              class="chevron-left absolute block"
+              onclick="history.back()"
+            ></a
+            >아이디 찾기
+          </div>
+          <span class="text-sm"
+            >가입 당시 입력한 사업자 등록번호를 통해 <br />인증 후 찾으실 수
+            있습니다.</span
+          >
+        </div>
+        <div class="form flex h-full w-full flex-col overflow-hidden">
+          <div class="form-content flex h-full w-full flex-col gap-1">
+            <div class="form-content flex h-full flex-col gap-3">
+              <div class="textfield flex flex-col">
+                <label class="label" for="number">사업자등록번호</label>
+                <input
+                  class="textfield-placeholder"
+                  type="number"
+                  placeholder="사업자 등록번호를 입력해주세요."
+                  required
+                />
+              </div>
+            </div>
+            <div class="btn-container sticky bottom-0 w-full">
+              <div class="background-white h-6"></div>
+              <a
+                class="btn btn-m btn-primary btn-wide btn-disabled"
+                href="SI-02.html"
+                >아이디 찾기</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

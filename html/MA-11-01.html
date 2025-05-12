@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인텔로이아 | API/서비스 관리</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+  </head>
+  <body class="h-dvh w-dvw">
+    <main class="main">
+      <div class="menu">
+        <a><img src="/img/logo.svg" alt="intelloia logo" /></a>
+        <ul>
+          <li>
+            <a class="menu-active" href="/html/MA-10-01.html"
+              ><img
+                src="/img/icon/command-line-outline.svg"
+                alt="api/서비스관리"
+              />API/서비스 관리</a
+            >
+          </li>
+          <li>
+            <a href="/html/MA-20-01.html"
+              ><img
+                src="/img/icon/document-text-outline.svg"
+                alt="사용 내역"
+              />사용 내역</a
+            >
+          </li>
+          <li>
+            <a href="html/MA-30-01.html"
+              ><img
+                src="/img/icon/currency-dollar-outline.svg"
+                alt="포인트 관리"
+              />포인트 관리</a
+            >
+          </li>
+          <li>
+            <a hre="/html/MA-40-01.html"
+              ><img
+                src="/img/icon/user-circle-outline.svg"
+                alt="회원정보 관리"
+              />회원정보 관리</a
+            >
+          </li>
+          <li></li>
+        </ul>
+        <div
+          class="menu-footer align-center flex w-full flex-col items-center gap-2"
+        >
+          <a
+            href="/html/LO-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-outline"
+            >로그아웃</a
+          >
+          <a
+            href="/html/LA-01.html"
+            class="btn btn-m btn-wide btn-neutral btn-ghost"
+            >인텔로이아</a
+          >
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="content flex max-w-xl flex-col gap-10">
+          <div class="text-container relative">
+            <a
+              href="#"
+              class="chevron-left absolute -left-10 block"
+              onclick="history.back()"
+            ></a>
+            <div class="foreground-gray-strong text-2xl font-bold">
+              의료 STT
+            </div>
+          </div>
+          <div class="content-container flex flex-col gap-6">
+            <div
+              class="background-white flex flex-col items-center justify-between gap-6 rounded-lg p-8"
+            >
+              <div
+                class="container-listitem flex w-full flex-row items-center justify-between"
+              >
+                <span class="container-listitem-title text-base font-semibold">
+                  월정액 금액
+                </span>
+                <div class="container-listitem-content flex flex-row gap-1">
+                  <span class="text-base">12,000</span>
+                  <span class="foreground-gray-subtle text-base">원</span>
+                </div>
+              </div>
+              <div
+                class="container-listitem relative flex w-full flex-row items-center justify-between"
+              >
+                <span
+                  class="container-listitem-title flex flex-col text-base font-semibold"
+                >
+                  <span>동시 계정 수</span>
+                  <span class="foreground-gray-subtle text-xs"
+                    >여러 사용자가 동시에 API를 이용할 수 있습니다.</span
+                  >
+                </span>
+
+                <div class="container-listitem-content">
+                  <div class="stepper-container">
+                    <div class="stepper">
+                      <button
+                        class="stepper-button decrement-button"
+                        id="decrement-button"
+                        aria-label="Decrease value"
+                      >
+                        <div class="stepper-icon stepper-icon-left"></div>
+                      </button>
+                      <input
+                        type="number"
+                        class="stepper-input"
+                        id="stepper-input"
+                        aria-labelledby="stepper-label"
+                        value="0"
+                      />
+                      <button
+                        class="stepper-button increment-button"
+                        id="increment-button"
+                        aria-label="Increase value"
+                      >
+                        <div class="stepper-icon stepper-icon-right"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div
+                class="container-listitem flex w-full flex-row items-center justify-between"
+              >
+                <!-- stepper 값에 따라 총 요금값이 변경돼야 함 -->
+                <span class="container-listitem-title text-base font-semibold">
+                  총 요금
+                </span>
+                <div
+                  class="container-listitem-content flex flex-row items-center gap-1"
+                >
+                  <span
+                    class="foreground-gray-strong stepper-result text-xl font-semibold"
+                    >24,000</span
+                  >
+                  <span class="foreground-gray-subtle text-base">원/월</span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-container">
+              <a href="" class="btn btn-m btn-wide btn-primary">API 사용하기</a>
+            </div>
+            <div class="tooltip tooltip-open tooltip-bottom" data-tip="툴팁">
+              <a class="btn btn-primary">Top</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

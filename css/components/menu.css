@@ -1,0 +1,59 @@
+.menu {
+  display: flex;
+  width: 21.5rem;
+  height: 100%;
+  padding: 108px 40px 76px;
+  flex-direction: column;
+  align-items: center;
+  background: var(--fill-gray-subtler);
+  gap: 2rem;
+  justify-content: flex-start;
+  @media (max-width: 1280px) {
+    padding: 108px 16px 76px;
+    min-width: 248px;
+  }
+
+  :where(ul) {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--size-16, 16px);
+    flex: 1 0 0;
+  }
+
+  :where(li) {
+    width: 100%;
+  }
+
+  :where(li a) {
+    display: flex;
+    flex-direction: row;
+    width: 16.5rem;
+    padding: var(--size-10, 10px) var(--size-20, 20px);
+    align-items: center;
+    gap: var(--size-16, 16px);
+    align-self: stretch;
+    border-radius: var(--radius-4, 4px);
+    cursor: pointer;
+    font: var(--text-base);
+    @media (max-width: 1280px) {
+      width: 14.5rem;
+    }
+  }
+
+  :where(li a:active, .menu-active) {
+    background: var(--fill-white);
+    color: var(--foreground-gray-strong);
+    font-weight: 500;
+    border: 1px solid var(--foreground-gray-subtlest);
+  }
+
+  :where(li a:hover) {
+    background: var(--fill-gray-subtle);
+  }
+
+  .li .a img {
+    width: 24px;
+    height: 24px;
+  }
+}
