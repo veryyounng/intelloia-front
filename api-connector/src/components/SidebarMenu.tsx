@@ -31,12 +31,12 @@ export default function SidebarMenu() {
   return (
     <div className="menu">
       <div className="flex flex-row items-end gap-1">
-        <a href="../html/MY-01-01.html">
+        <Link to= "/user-dashboard">
           <img src="../img/logo.png" alt="intelloia logo" />
-        </a>
-        <a href="../html/LA-01.html" className="btn btn-icon-s btn-ghost pb-1">
+        </Link>
+        <Link to="/user-dashboard" className="btn btn-icon-s btn-ghost pb-1">
           <img src="../img/icon/square-arrow-out-up-right 1.svg" alt="" />
-        </a>
+        </Link>
       </div>
       <div className="divider"></div>
       <ul>
@@ -53,22 +53,19 @@ export default function SidebarMenu() {
           </Link>
         </li>
         <li>
-          <a href="../html/SV-01-01.html">
-            <img
-              src="../img/icon/building-storefront-outline.svg"
-              alt="Services"
-            />
+          <Link to = "/service-page">
+            <img src="../img/icon/building-storefront-outline.svg" alt="Services"/>
             Services
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="../html/PO-01-01.html">
+          <Link to="/point-page">
             <img src="../img/icon/credit-card-outline.svg" alt="포인트 내역" />
             포인트 내역
-          </a>
+            </Link>
         </li>
         <li>
-          <a href="../html/MM-01-01.html">
+          <a href="">
             <img
               src="../img/icon/user-circle-outline.svg"
               alt="회원정보 관리"

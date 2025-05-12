@@ -1,5 +1,6 @@
 // src/pages/UserDashboard.tsx
 import React, { useEffect, useState } from "react";
+import SidebarMenu from "../components/SidebarMenu";
 import { useAuthStore } from "../store/authStore";
 import { Link } from "react-router-dom";
 import { getUserApiUsages, ApiUsageResponseDTO } from "../services/UserService";
@@ -32,87 +33,7 @@ const UserDashboard: React.FC = () => {
   return (
     <div className="h-dvh w-dvw">
       <main className="main">
-        <div className="menu">
-          <div className="flex flex-row items-end gap-1">
-            <Link to="/apis-page">
-              <img src="/img/logo.png" alt="intelloia logo" />
-            </Link>
-            <a
-              href="/html/LA-01.html"
-              className="btn btn-icon-s btn-ghost pb-1"
-            >
-              <img src="/img/icon/square-arrow-out-up-right 1.svg" alt="" />
-            </a>
-          </div>
-          <div className="divider"></div>
-          <ul>
-            <li>
-              <Link to="/user-dashboard" className="menu-active">
-                <img
-                  src="/img/icon/document-text-outline.svg"
-                  alt="MY 사용내역"
-                />
-                MY 사용내역
-              </Link>
-            </li>
-            <li>
-              <Link to="/apis-page">
-                <img src="/img/icon/command-line-outline.svg" alt="APIs" />
-                APIs
-              </Link>
-            </li>
-            <li>
-              <a href="/html/SV-01-01.html">
-                <img
-                  src="/img/icon/building-storefront-outline.svg"
-                  alt="Services"
-                />
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="/html/PO-01-01.html">
-                <img
-                  src="/img/icon/credit-card-outline.svg"
-                  alt="포인트 내역"
-                />
-                포인트 내역
-              </a>
-            </li>
-            <li>
-              <a href="/html/MM-01-01.html">
-                <img
-                  src="/img/icon/user-circle-outline.svg"
-                  alt="회원정보 관리"
-                />
-                회원정보 관리
-              </a>
-            </li>
-          </ul>
-          <div className="divider"></div>
-          <div className="menu-footer align-center flex w-full flex-col items-center">
-            <div className="profile-container">
-              <div className="profile">
-                <img src="/img/icon/user-outline.svg" alt="" />
-              </div>
-              <div className="profile-info">
-                <div className="flex flex-row gap-2">
-                  <span>{userInfo?.userName}</span>
-                  <span className="chip chip-neutral chip-s">
-                    {userInfo?.authorities}
-                  </span>
-                </div>
-                <div>{userInfo?.email}</div>
-              </div>
-              <div className="profile-btn">
-                <a href="#" className="btn btn-icon-m btn-ghost">
-                  <img src="/img/icon/power-outline.svg" alt="logout" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <SidebarMenu/>
         <div className="main-content">
           <div className="content flex flex-col gap-10">
             <div className="text-container relative">
