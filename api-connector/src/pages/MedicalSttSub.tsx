@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SidebarMenu from "../components/SidebarMenu";
 import { postUserApiUsage } from "../services/UserService";
@@ -7,6 +7,8 @@ import { useAuthStore } from "../store/authStore";
 export function MedicalSttSub() {
   const [connectionCount, setConnectionCount] = useState(1);
   const [usageTarget, setUsageTarget] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const navigate = useNavigate();
   const { userInfo } = useAuthStore();
@@ -24,25 +26,31 @@ export function MedicalSttSub() {
 
   const estimatedMonthlyFee = 12000 * connectionCount;
 
-  const handleRegisterApi = async () => {
-    const newApiUsage = {
-      apiName: "의료 STT",
-      apiKey: "abcd-1234-efgh-5678",
-      partnerName: "인텔로이드",
-      managerCount: 1,
-      concurrentAccess: 1,
-      price: 12000,
-      createdAt: new Date().toISOString(),
-      usageTarget: usageTarget,
-    };
-    if (!userId) throw new Error("userId가 없습니다!");
-    try {
-      await postUserApiUsage(userId, newApiUsage);
-      console.log("API 등록 완료!");
-    } catch (error) {
-      console.error("등록 실패:", error);
-    }
+const handleRegisterApi = async () => {
+  const newApiUsage = {
+    apiName: "의료 STT",
+    apiKey: "abcd-1234-efgh-5678",
+    partnerName: "인텔로이드",
+    managerCount: 1,
+    concurrentAccess: connectionCount,
+    price: 12000,
+    createdAt: new Date().toISOString(),
+    usageTarget: usageTarget,
   };
+  if (!userId) throw new Error("userId가 없습니다!");
+  try {
+    await postUserApiUsage(userId, newApiUsage);
+    setShowModal(false);
+    setShowSuccessModal(true);
+
+    setTimeout(() => {
+      navigate("/apis-page");
+    }, 1500);
+  } catch (error) {
+    console.error("등록 실패:", error);
+  }
+};
+
 
   return (
     <main className="main">
@@ -50,9 +58,7 @@ export function MedicalSttSub() {
       <div className="main-content">
         <div className="content flex flex-col gap-10">
           <div className="text-container relative">
-            <div className="foreground-gray-strong text-2xl font-bold">
-              APIs
-            </div>
+            <div className="foreground-gray-strong text-2xl font-bold">APIs</div>
           </div>
           <div className="divider"></div>
           <div className="flex-col">
@@ -111,16 +117,17 @@ export function MedicalSttSub() {
                           </div>
                         </div>
                         <span className="text-xs font-normal">
-                          동시 접속 수는 동시에 API를 사용할 수 있는 사용자(또는
-                          장치)의 수를 의미합니다. 동시 접속 수가 초과되면 추가
-                          요청은 대기 상태가 되거나 거부될 수 있으므로, 예상되는
-                          사용량을 고려하여 적절히 설정해 주세요.
+                          동시 접속 수는 동시에 API를 사용할 수 있는 사용자(또는 장치)의 수를 의미합니다.
+                          동시 접속 수가 초과되면 추가 요청은 대기 상태가 되거나 거부될 수 있으므로,
+                          예상되는 사용량을 고려하여 적절히 설정해 주세요.
                         </span>
                       </div>
                     </div>
+
+                    {/* ✅ 모달 열기 버튼 */}
                     <button
                       className="btn btn-l btn-primary"
-                      onClick={handleRegisterApi}
+                      onClick={() => setShowModal(true)}
                     >
                       2주 무료체험
                     </button>
@@ -171,15 +178,55 @@ export function MedicalSttSub() {
                         <span className="foreground-gray-strong stepper-result text-3xl">
                           {estimatedMonthlyFee.toLocaleString()}
                         </span>
-                        <span className="foreground-gray-default text-lg">
-                          {" "}
-                          원/월
-                        </span>
+                        <span className="foreground-gray-default text-lg"> 원/월</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* 신청 확인 모달 */}
+{showModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
+    <div className="bg-white p-6 rounded-lg w-96 shadow-lg">
+      <h2 className="text-xl font-bold mb-4">신청 확인</h2>
+      <p className="mb-6">의료 STT API를 2주 무료체험으로 신청하시겠습니까?</p>
+      <div className="flex justify-end gap-4">
+        <button
+          className="btn btn-m btn-primary"
+          onClick={handleRegisterApi}
+        >
+          신청
+        </button>
+        <button
+          className="btn btn-m btn-secondary"
+          onClick={() => setShowModal(false)}
+        >
+          취소
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+{/* ✅ 신청 완료 모달 */}
+{showSuccessModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
+    <div className="bg-white p-6 rounded-lg w-96 shadow-lg">
+      <h2 className="text-xl font-bold mb-4">신청 완료</h2>
+      <p className="mb-6">2주 무료체험 신청이 완료되었습니다!</p>
+      <div className="flex justify-end">
+        <button
+          className="btn btn-m btn-primary"
+          onClick={() => setShowSuccessModal(false)}
+        >
+          확인
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
             </div>
           </div>
         </div>
