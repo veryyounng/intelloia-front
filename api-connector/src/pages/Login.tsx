@@ -23,7 +23,7 @@ const Login: React.FC = () => {
         useAuthStore
           .getState()
           .setAuth(tokens.accessToken, tokens.refreshToken);
-        const store = useAuthStore.getState();
+        // const store = useAuthStore.getState();
 
         navigate("/user-dashboard");
       } else {

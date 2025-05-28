@@ -2,15 +2,13 @@
 import React, { useEffect, useState } from "react";
 import SidebarMenu from "../components/SidebarMenu";
 import { useAuthStore } from "../store/authStore";
-import { Link } from "react-router-dom";
 import { getUserApiUsages, ApiUsageResponseDTO } from "../services/UserService";
 import { fetchUserInfo } from "../services/UserService";
 
 const UserDashboard: React.FC = () => {
   const { userInfo } = useAuthStore();
+  // @ts-ignore
   const [apiUsages, setApiUsages] = useState<ApiUsageResponseDTO[]>([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {

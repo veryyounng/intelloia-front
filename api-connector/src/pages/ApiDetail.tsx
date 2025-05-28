@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SidebarMenu from "../components/SidebarMenu";
 import ModalManager from "../components/ModalManager";
 import { getApiUsageDetail } from "../services/UserService";

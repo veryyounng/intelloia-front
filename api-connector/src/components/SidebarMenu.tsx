@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "../store/authStore";
 import { Link } from "react-router-dom";
 import { getUserApiUsages, ApiUsageResponseDTO } from "../services/UserService";
@@ -6,9 +6,10 @@ import { fetchUserInfo } from "../services/UserService";
 
 export default function SidebarMenu() {
   const { userInfo } = useAuthStore();
+  // @ts-ignore
   const [apiUsages, setApiUsages] = useState<ApiUsageResponseDTO[]>([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  // const [startDate, setStartDate] = useState("");
+  // const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {

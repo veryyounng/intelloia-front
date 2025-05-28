@@ -8,8 +8,6 @@ import { fetchUserInfo } from "../services/UserService";
 const APIsPage: React.FC = () => {
   const { userInfo } = useAuthStore();
   const [apiUsages, setApiUsages] = useState<ApiUsageResponseDTO[]>([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {

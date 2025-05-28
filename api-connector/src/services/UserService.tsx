@@ -63,6 +63,7 @@ export const signupUser = async (userData: any) => {
 };
 
 // 로그인된 사용자 정보 가져오기
+// @ts-ignore
 export const fetchUserInfo = async (userId: string) => {
   const { accessToken } = useAuthStore.getState();
 
