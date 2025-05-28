@@ -1,9 +1,11 @@
 /* need to be edited */
 
 @media (380px < width < 720px) {
+
   .main:has(.login) {
     background-image: var(--background-white);
   }
+
   .login:first-of-type {
     display: none;
   }
@@ -63,6 +65,25 @@
   }
 }
 
+.section-m {
+  padding: 1.25rem 1.5rem;
+  @media (max-width: 1280px) {
+    padding: 1rem 1.25rem;
+  }
+}
+
+.section-m-2 {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  border-radius: var(--radius-12);
+  border: 1px solid var(--foreground-gray-subtlest);
+  @media (max-width: 1280px) {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
 .section-plain {
   padding: 0;
   border: none;
@@ -76,11 +97,13 @@
   gap: 0.5rem;
   font-size: var(--text-xl);
   font-weight: 600;
-  color: var(--foreground-gray-stronger);
+  color: var(--foreground-gray-strong);
 }
+
 .section-header span:first-of-type {
-  color: var(--foreground-gray-stronger);
+  color: var(--foreground-gray-strong);
 }
+
 .section-body {
   display: flex;
   gap: var(--section-body-gap);
@@ -89,12 +112,12 @@
 .login:first-of-type div {
   background: linear-gradient(
     325deg,
-    hsl(240, 75%, 76%) 0%,
-    hsl(359, 100%, 74%) 40%,
-    hsl(38, 100%, 63%) 100%
+    hsl(240deg 75% 76%) 0%,
+    hsl(359deg 100% 74%) 40%,
+    hsl(38deg 100% 63%) 100%
   );
   background-size: 200% 200%;
-  -webkit-background-clip: text;
+  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 2s linear infinite;
@@ -133,7 +156,8 @@ section:first-of-type {
   z-index: 1;
   position: relative;
 }
-section:first-of-type:before {
+
+section:first-of-type::before {
   content: "";
   position: absolute;
   top: -240px;
@@ -142,9 +166,9 @@ section:first-of-type:before {
   height: 120%;
   background: linear-gradient(
     180deg,
-    rgba(31, 31, 34, 1) 70%,
-    rgba(89, 76, 67, 1) 90%,
-    rgba(255, 186, 137, 0) 100%
+    rgb(31 31 34 / 100%) 70%,
+    rgb(89 76 67 / 100%) 90%,
+    rgb(255 186 137 / 0%) 100%
   );
   filter: blur(80px);
   z-index: -1;
@@ -166,13 +190,16 @@ footer {
   padding: 0 240px;
   color: var(--gray-300);
 }
+
 footer .text-container {
   color: var(--foreground-white);
   margin-bottom: 320px;
 }
+
 .footer-inner {
   text-align: left;
 }
+
 .footer-inner .moreinfo .moreinfo-description-container,
 .footer-inner .moreinfo .moreinfo-link-container {
   display: flex;
@@ -185,6 +212,7 @@ footer .text-container {
   content: "|";
   margin-left: 8px;
 }
+
 .moreinfo-description:last-child::after {
   content: none;
 }

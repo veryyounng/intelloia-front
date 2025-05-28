@@ -23,6 +23,7 @@
     height: 2.5rem;
   }
 }
+
 .profile img {
   width: 1.5rem;
   height: 1.5rem;
@@ -31,6 +32,7 @@
     height: 1rem;
   }
 }
+
 .profile-info {
   display: flex;
   flex-direction: column;

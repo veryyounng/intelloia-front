@@ -1,6 +1,7 @@
 /* table {
   table-layout: fixed;
 } */
+
 .table {
   font-size: 0.875rem;
   position: relative;
@@ -20,17 +21,30 @@
   background-color: var(--fill-gray-subtler);
 }
 
-.table .td-money:after {
-  content: " 원";
+.table .td-money,
+.table .td-point {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
 }
-.table .td-people:after {
-  content: " 명";
+
+.table .td-count::after {
+  content: ' 개';
 }
-.table .td-point:after {
-  content: " P";
+
+.table .td-money::after {
+  content: ' 원';
 }
-.table .td-status-stop:before {
-  content: " ";
+
+.table .td-people::after {
+  content: ' 명';
+}
+
+.table .td-point::after {
+  content: ' P';
+}
+
+.table .td-status-stop::before {
+  content: ' ';
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
@@ -38,8 +52,9 @@
   background-color: var(--fill-brand-default);
   margin-right: 0.5rem;
 }
-.table .td-status-inuse:before {
-  content: " ";
+
+.table .td-status-inuse::before {
+  content: ' ';
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
@@ -47,9 +62,11 @@
   background-color: var(--fill-green-default);
   margin-right: 0.5rem;
 }
+
 .table th,
 .table td {
   max-width: 200px;
+
   /* min-width: 20px; */
   padding: 0.25rem 0.5rem;
   vertical-align: middle;
@@ -93,7 +110,7 @@
 }
 
 .table td:has(a) {
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem;
 }
 
 .table td a img {
@@ -103,7 +120,7 @@
 
 .table thead,
 .table tfoot {
-  background: var(--fill-gray-subtle);
+  background: var(--fill-gray-subtler);
   color: var(--foreground-gray-subtle);
   white-space: nowrap;
   font-size: var(--text-sm);
@@ -125,6 +142,23 @@
 
 .table thead tr,
 .table tbody tr:not(:last-child) {
-  border-bottom: 1px solid
-    color-mix(in oklch, var(--foreground-gray-default) 5%, transparent);
+  border-bottom: 1px solid color-mix(in oklch, var(--foreground-gray-default) 5%, transparent);
+}
+
+/* 빈 상태 스타일 */
+
+.table tr:first-of-type:last-of-type td:first-of-type:last-of-type {
+  width: 100%;
+  height: 108px;
+  text-align: center;
+}
+
+.table tr:first-of-type:last-of-type td span {
+  display: block;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+}
+
+.table tr:first-of-type:last-of-type td a {
+  margin-top: 0.5rem;
 }

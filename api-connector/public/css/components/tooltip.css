@@ -5,7 +5,7 @@
   margin-bottom: 4px;
   vertical-align: middle;
   display: inline-block;
-  background-image: url("/img/icon/information-circle-outline.svg");
+  background-image: url('/img/icon/information-circle-outline.svg');
   background-size: 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -38,6 +38,7 @@
 }
 
 /* to-do 툴팁 화살표 추가 */
+
 /* .tooltip-right::before {
   content: "";
   position: absolute;

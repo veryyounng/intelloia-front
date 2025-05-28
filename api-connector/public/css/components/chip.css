@@ -20,12 +20,14 @@
 
 .chip-l {
   padding: 0.5rem 1rem;
-  font-size: var(--text-md);
-  line-height: var(--text-md--line-height);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: 600;
+  height: 2.25rem;
 }
 
 .chip-neutral {
   background: var(--fill-white);
-  color: var(--foreground-gray-strong);
+  color: var(--foreground-gray-default);
   border: 1px solid var(--foreground-gray-subtlest);
 }

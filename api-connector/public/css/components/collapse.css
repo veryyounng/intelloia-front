@@ -12,6 +12,7 @@
 }
 
 /* 테이블 요소에서는 보이지 않도록 설정 */
+
 .collapse:not(td, tr, colgroup) {
   visibility: visible;
 }
@@ -75,6 +76,7 @@
   padding: var(--size-4) var(--size-8);
   cursor: pointer;
   color: var(--foreground-gray-subtler);
+
   /* transition: transform 0.5s ease; */
   display: flex;
   align-items: center;

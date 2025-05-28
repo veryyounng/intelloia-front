@@ -17,12 +17,13 @@
 }
 
 .progressbar::before {
-  content: "";
+  content: '';
   height: 2px;
   position: absolute;
   top: var(--size-6);
   margin: 0 var(--size-16);
 }
+
 .progressbar:nth-of-type(2)::before {
   width: 44%;
   right: 48%;

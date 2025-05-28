@@ -15,15 +15,15 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--foreground-gray-subtler);
+  border: 1px solid var(--foreground-gray-subtlest);
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s;
 }
 
 .stepper-button:hover:not(:disabled) {
-  color: var(--foreground-gray-subtler);
-  background-color: var(--fill-gray-subtle);
+  color: var(--foreground-gray-subtlest);
+  background-color: var(--fill-gray-subtler);
 }
 
 .stepper-button:focus {
@@ -38,7 +38,7 @@
 }
 
 .stepper-button:disabled .stepper-icon {
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .decrement-button {
@@ -55,8 +55,8 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-top: 1px solid var(--foreground-gray-subtler);
-  border-bottom: 1px solid var(--foreground-gray-subtler);
+  border-top: 1px solid var(--foreground-gray-subtlest);
+  border-bottom: 1px solid var(--foreground-gray-subtlest);
   background-color: white;
   font-size: var(--text-sm);
   font-weight: 500;
@@ -65,8 +65,8 @@
 
 input::-webkit-inner-spin-button {
   appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
+  appearance: none;
 }
 
 .stepper-icon {
@@ -74,9 +74,11 @@ input::-webkit-inner-spin-button {
   height: 1rem;
   background-size: cover;
 }
+
 .stepper-icon-left {
-  background-image: url("/img/icon/minus-outline.svg");
+  background-image: url('/img/icon/minus-outline.svg');
 }
+
 .stepper-icon-right {
-  background-image: url("/img/icon/plus-outline.svg");
+  background-image: url('/img/icon/plus-outline.svg');
 }

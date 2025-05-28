@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       content.classList.toggle("open");
 
       // 로그 출력
-      // console.log("Toggled:", content.classList.contains("open"));
+      console.log("Toggled:", content.classList.contains("open"));
     });
   });
 });
@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 필수 입력 요소들 찾기
   const requiredInputs = document.querySelectorAll("input[required]");
+  console.log("Required inputs found:", requiredInputs.length); // 디버깅용
 
   // 모든 필수 입력 확인
   function checkAllRequired() {
@@ -106,13 +107,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    console.log("All valid:", allValid); // 디버깅용
+
     // 버튼 상태 업데이트
     if (allValid) {
       nextButton.disabled = false;
       nextButton.classList.remove("btn-disabled");
+      console.log("Button enabled"); // 디버깅용
     } else {
       nextButton.disabled = true;
       nextButton.classList.add("btn-disabled");
+      console.log("Button disabled"); // 디버깅용
     }
   }
 
@@ -669,5 +674,412 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.close();
       }
     });
+  }
+});
+
+// COMPONENT - TAB - 탭 클릭 시 테이블 데이터 변경
+document.addEventListener("DOMContentLoaded", function () {
+  // 탭 컨테이너 찾기
+  const tabContainers = document.querySelectorAll(".tab-container");
+
+  tabContainers.forEach((container) => {
+    // 탭 요소들 찾기
+    const tabs = container.querySelectorAll(".tab");
+    // 테이블 찾기 (탭 컨테이너 다음에 있는 테이블)
+    const table = container
+      .closest(".section")
+      .querySelector("table tbody.point-table");
+    const tableHeader = container
+      .closest(".section")
+      .querySelector("table thead.point-table");
+
+    if (!table) return;
+
+    // 각 탭에 이벤트 리스너 추가
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // 모든 탭에서 active 클래스 제거
+        tabs.forEach((t) => t.classList.remove("tab-active"));
+        // 클릭된 탭에 active 클래스 추가
+        this.classList.add("tab-active");
+
+        // 탭 텍스트 가져오기
+        const tabText = this.querySelector("span").textContent;
+
+        // 테이블 데이터 업데이트
+        updateTableData(table, tableHeader, tabText);
+      });
+    });
+
+    // 초기 탭 활성화
+    const activeTab = container.querySelector(".tab-active");
+    if (activeTab) {
+      const tabText = activeTab.querySelector("span").textContent;
+      updateTableData(table, tableHeader, tabText);
+    }
+  });
+
+  // 테이블 데이터 업데이트 함수
+  function updateTableData(table, tableHeader, tabType) {
+    // 테이블 내용 지우기
+    table.innerHTML = "";
+
+    // 테이블 헤더 업데이트
+    const headerRow = tableHeader.querySelector("tr");
+    const headerCells = headerRow.querySelectorAll("th");
+
+    // 모든 헤더 셀 초기화
+    headerCells.forEach((cell) => {
+      cell.style.display = "";
+    });
+
+    // "전체 내역" 탭이 아닌 경우 "잔여 포인트" 열 숨기기
+    if (tabType !== "전체 내역") {
+      // 마지막 열(잔여 포인트) 숨기기
+      if (headerCells.length > 0) {
+        headerCells[headerCells.length - 1].style.display = "none";
+      }
+    }
+
+    // "포인트 충전" 또는 "포인트 환불" 탭인 경우 추가 열 표시
+    if (tabType === "포인트 충전") {
+      // 기존 헤더 셀 숨기기
+      headerCells.forEach((cell) => {
+        cell.style.display = "none";
+      });
+
+      // 새로운 헤더 셀 추가
+      headerRow.innerHTML = `
+        <th>날짜</th>
+        <th>카드사</th>
+        <th>Billing account ID</th>
+        <th>상세 내용</th>
+        <th>포인트 내역</th>
+        <th>거래 내역</th>
+      `;
+    } else if (tabType === "포인트 환불") {
+      // 기존 헤더 셀 숨기기
+      headerCells.forEach((cell) => {
+        cell.style.display = "none";
+      });
+
+      // 새로운 헤더 셀 추가
+      headerRow.innerHTML = `
+        <th>환불 요청일</th>
+        <th>카드사</th>
+        <th>Billing account ID</th>
+        <th>상세 내용</th>
+        <th>환불 요청 금액</th>
+        <th>거래 내역</th>
+      `;
+    } else if (tabType === "전체 내역") {
+      // "전체 내역" 탭인 경우 원래 헤더 복원
+      headerRow.innerHTML = `
+        <th>날짜</th>
+        <th>유형</th>
+        <th>상세 내용</th>
+        <th>동시 계정 / 플랜</th>
+        <th>포인트 내역</th>
+        <th>잔여 포인트</th>
+      `;
+    } else {
+      // 다른 탭인 경우 "잔여 포인트" 열을 제외한 원래 헤더 복원
+      headerRow.innerHTML = `
+        <th>날짜</th>
+        <th>유형</th>
+        <th>상세 내용</th>
+        <th>동시 계정 / 플랜</th>
+        <th>포인트 내역</th>
+      `;
+    }
+
+    // 탭 타입에 따라 다른 데이터 표시
+    let data = [];
+
+    switch (tabType) {
+      case "전체 내역":
+        data = [
+          {
+            date: "2025/03/20",
+            type: "포인트 충전",
+            detail: "결제 (30,000P)",
+            plan: "-",
+            points: "+30,000",
+            remaining: "88,000",
+          },
+          {
+            date: "2025/03/15",
+            type: "서비스 사용",
+            detail: "서비스 A",
+            plan: "스타터 플랜 * 1",
+            points: "-12,000",
+            remaining: "58,000",
+          },
+          {
+            date: "2025/03/10",
+            type: "서비스 사용",
+            detail: "서비스 C",
+            plan: "엔터프라이즈 플랜 * 5",
+            points: "-50,000",
+            remaining: "70,000",
+          },
+          {
+            date: "2025/03/05",
+            type: "포인트 충전",
+            detail: "결제 (50,000P)",
+            plan: "-",
+            points: "+50,000",
+            remaining: "120,000",
+          },
+          {
+            date: "2025/03/01",
+            type: "API 사용",
+            detail: "의료 STT",
+            plan: "동시 계정 * 3",
+            points: "-30,000",
+            remaining: "70,000",
+          },
+        ];
+        break;
+      case "서비스 사용":
+        data = [
+          {
+            date: "2025/03/15",
+            type: "서비스 사용",
+            detail: "서비스 A",
+            plan: "스타터 플랜 * 1",
+            points: "-12,000",
+          },
+          {
+            date: "2025/03/10",
+            type: "서비스 사용",
+            detail: "서비스 C",
+            plan: "엔터프라이즈 플랜 * 5",
+            points: "-50,000",
+          },
+          {
+            date: "2025/03/01",
+            type: "서비스 사용",
+            detail: "서비스 B",
+            plan: "스타터 플랜 * 3",
+            points: "-30,000",
+          },
+        ];
+        break;
+      case "API 사용":
+        data = [
+          {
+            date: "2025/03/01",
+            type: "API 사용",
+            detail: "의료 STT",
+            plan: "프로 플랜 * 3",
+            points: "-30,000",
+            remaining: "70,000",
+          },
+        ];
+        break;
+      case "포인트 충전":
+        data = [
+          {
+            date: "2025/03/20",
+            type: "포인트 충전",
+            detail: "카드 결제 (30,000P)",
+            cardCompany: "신한 **** 1234",
+            billingAccountId: "BILL-2025-03-20-001",
+            points: "+30,000",
+            transaction:
+              '<a href="#" class="btn btn-s btn-neutral btn-outline">영수증</a>',
+          },
+          {
+            date: "2025/03/05",
+            type: "포인트 충전",
+            detail: "카드 결제 (50,000P)",
+            cardCompany: "현대 **** 5678",
+            billingAccountId: "BILL-2025-03-05-002",
+            points: "+50,000",
+            transaction:
+              '<a href="#" class="btn btn-s btn-neutral btn-outline">영수증</a>',
+          },
+        ];
+        break;
+      case "포인트 환불":
+        data = [
+          {
+            date: "2025/03/18",
+            type: "포인트 환불",
+            detail: "환불 진행 중",
+            cardCompany: "신한 **** 1234",
+            billingAccountId: "BILL-2025-03-18-003",
+            points: "20,000",
+            transaction:
+              '<a href="#" class="btn btn-s btn-neutral btn-outline">영수증</a>',
+          },
+        ];
+        break;
+      default:
+        data = [
+          {
+            date: "2025/03/20",
+            type: "포인트 충전",
+            detail: "결제 (30,000P)",
+            plan: "-",
+            points: "+30,000",
+            remaining: "88,000",
+          },
+          {
+            date: "2025/03/15",
+            type: "서비스 사용",
+            detail: "서비스 A",
+            plan: "스타터 플랜 * 1",
+            points: "-12,000",
+            remaining: "58,000",
+          },
+          {
+            date: "2025/03/10",
+            type: "서비스 사용",
+            detail: "서비스 C",
+            plan: "엔터프라이즈 플랜 * 5",
+            points: "-50,000",
+            remaining: "70,000",
+          },
+          {
+            date: "2025/03/05",
+            type: "포인트 충전",
+            detail: "결제 (50,000P)",
+            plan: "-",
+            points: "+50,000",
+            remaining: "120,000",
+          },
+          {
+            date: "2025/03/01",
+            type: "API 사용",
+            detail: "의료 STT",
+            plan: "동시 계정 * 3",
+            points: "-30,000",
+            remaining: "70,000",
+          },
+        ];
+    }
+
+    // 데이터가 없을 경우 메시지 표시
+    if (data.length === 0) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td colspan="7"><span>조회할 내역이 없습니다.</span></td>`;
+      table.appendChild(tr);
+      return;
+    }
+
+    // 데이터로 테이블 행 생성
+    data.forEach((item) => {
+      const tr = document.createElement("tr");
+      tr.classList.add("row");
+
+      // 포인트 값에 따라 클래스 추가
+      const pointClass = item.points.startsWith("+") ? "td-point" : "td-point";
+
+      // "전체 내역" 탭인 경우
+      if (tabType === "전체 내역") {
+        tr.innerHTML = `
+          <td>${item.date}</td>
+          <td>${item.type}</td>
+          <td>${item.detail}</td>
+          <td>
+            <span>${item.plan}</span>
+          </td>
+          <td class="${pointClass}">
+            <span style="display: inline-block;">${item.points.startsWith("+") ? "+" : "-"}</span>
+            <span style="display: inline-block;">${item.points.replace("+", "").replace("-", "")}</span>
+          </td>
+          <td class="td-point">${item.remaining}</td>
+        `;
+      }
+      // "포인트 충전" 또는 "포인트 환불" 탭인 경우
+      else if (tabType === "포인트 충전") {
+        tr.innerHTML = `
+          <td>${item.date}</td>
+          <td>${item.cardCompany}</td>
+          <td>${item.billingAccountId}</td>
+          <td>${item.detail}</td>
+          <td class="${pointClass}">
+            <span style="display: inline-block;">${item.points.startsWith("+") ? "+" : "-"}</span>
+            <span style="display: inline-block;">${item.points.replace("+", "").replace("-", "")}</span>
+          </td>
+          <td>${item.transaction}</td>
+        `;
+      } else if (tabType === "포인트 환불") {
+        tr.innerHTML = `
+          <td>${item.date}</td>
+          <td>${item.cardCompany}</td>
+          <td>${item.billingAccountId}</td>
+          <td>${item.detail}</td>
+          <td class="td-point">${item.points}</td>
+          <td>${item.transaction}</td>
+        `;
+      }
+      // 다른 탭인 경우
+      else {
+        tr.innerHTML = `
+          <td>${item.date}</td>
+          <td>${item.type}</td>
+          <td>${item.detail}</td>
+          <td>
+            <span>${item.plan}</span>
+          </td>
+          <td class="${pointClass}">
+            <span style="display: inline-block;">${item.points.startsWith("+") ? "+" : "-"}</span>
+            <span style="display: inline-block;">${item.points.replace("+", "").replace("-", "")}</span>
+          </td>
+        `;
+      }
+
+      table.appendChild(tr);
+    });
+
+    // 데이터가 5개 미만인 경우 빈 행 추가
+    const emptyRowsCount = Math.max(0, 5 - data.length);
+    for (let i = 0; i < emptyRowsCount; i++) {
+      const tr = document.createElement("tr");
+      tr.classList.add("row");
+
+      // 탭 유형에 따라 빈 행 생성
+      if (tabType === "전체 내역") {
+        tr.innerHTML = `
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        `;
+      } else if (tabType === "포인트 충전") {
+        tr.innerHTML = `
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        `;
+      } else if (tabType === "포인트 환불") {
+        tr.innerHTML = `
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        `;
+      } else {
+        tr.innerHTML = `
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        `;
+      }
+
+      table.appendChild(tr);
+    }
   }
 });
